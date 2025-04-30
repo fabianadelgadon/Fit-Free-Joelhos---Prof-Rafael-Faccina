@@ -1,0 +1,561 @@
+/* --- Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Consider using a more modern font later */
+    line-height: 1.6;
+    color: #f0f0f0; /* Default light text color for dark background */
+    background-color: #000; /* Black background */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1, h2, h3 {
+    color: #eee; /* Light color for headings */
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #e74c3c; /* Red-Orange - Keep for contrast */
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #ccc; /* Lighter gray for paragraphs */
+}
+
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 20px;
+    color: #ccc; /* Ensure list text is light */
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: #2ecc71; /* Emerald Green for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.bg-light {
+    background-color: #1a1a1a; /* Slightly lighter dark for contrast sections */
+    color: #ccc; /* Ensure text is light in these sections */
+}
+
+.bg-light h2, .bg-light h3, .bg-light p, .bg-light li {
+    color: #eee; /* Ensure headings and text are light */
+}
+
+.bg-dark {
+    background-color: #2c3e50; /* Dark Blue-Gray - Keep as is */
+    color: #fff;
+}
+
+.bg-dark h2, .bg-dark h3, .bg-dark p {
+    color: #fff;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background-color: #2ecc71; /* Emerald Green */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #27ae60; /* Darker Emerald */
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #e74c3c; /* Red-Orange */
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #c0392b; /* Darker Red-Orange */
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Utility class for centering */
+.text-center {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+/* --- Header --- */
+.main-header {
+    background-color: #111; /* Dark header background */
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    max-height: 80px; /* Increased logo size */
+    width: auto;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 25px;
+}
+
+.main-nav a {
+    color: #eee; /* Light color for nav links */
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.main-nav a:hover {
+    color: #2ecc71; /* Highlight color on hover */
+    text-decoration: none;
+}
+
+.btn-header-cta {
+    padding: 8px 15px;
+    font-size: 0.95rem;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    /* Keep gradient, maybe adjust opacity or colors if needed */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); /* Darker overlay */
+    color: #fff;
+    padding: 80px 0;
+    text-align: left;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    color: #fff;
+    font-size: 3rem;
+}
+
+.hero-text .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #eee;
+}
+
+.btn-hero-cta {
+    font-size: 1.3rem;
+    padding: 15px 35px;
+}
+
+.cta-subtext {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.hero-image {
+    flex-basis: 40%;
+    max-width: 400px;
+}
+
+.hero-image img {
+    border-radius: 10px;
+    /* Optional: add a subtle border if needed on dark bg */
+    /* border: 1px solid #444; */
+}
+
+/* --- Section Specific Styles --- */
+.section-sobre {
+    text-align: center;
+}
+
+.section-para-quem ul {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 40px;
+}
+
+.section-para-quem li {
+    margin-bottom: 1rem;
+    padding-left: 25px;
+    position: relative;
+}
+
+.section-para-quem li::before {
+    content: '✅'; /* Using emoji check */
+    /* color: #2ecc71; Emerald Green */
+    position: absolute;
+    left: 0;
+}
+
+.section-metodo .pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.pilar {
+    background-color: #222; /* Dark background for pilares */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.pilar h3 {
+    margin-bottom: 15px;
+    color: #e74c3c; /* Keep Red-Orange */
+}
+
+.pilar p {
+    color: #ccc; /* Ensure text is light */
+}
+
+.section-metodo ol {
+    max-width: 700px;
+    margin: 30px auto;
+    padding-left: 30px;
+}
+
+.section-metodo ol li {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+
+.section-beneficios ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-beneficios li {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    /* Emoji check already included in HTML */
+}
+
+.section-depoimentos .depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.depoimento-video video {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #444; /* Add border for visibility */
+}
+
+.depoimento-video p {
+    font-style: italic;
+    text-align: center;
+    color: #ccc;
+}
+
+.section-contato {
+    text-align: center;
+}
+
+.btn-final-cta {
+    font-size: 1.4rem;
+    padding: 18px 40px;
+    margin-bottom: 40px;
+}
+
+.video-principal-container {
+    margin-top: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-principal-container h3 {
+    margin-bottom: 15px;
+    color: #eee;
+}
+
+.video-principal-container video {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #444; /* Add border for visibility */
+}
+
+/* Instagram Highlight Section */
+.instagram-highlight {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #555; /* Separator line */
+    text-align: center;
+}
+
+.instagram-highlight h3 {
+    margin-bottom: 15px;
+    color: #eee;
+}
+
+.instagram-highlight p {
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.instagram-highlight p a {
+    color: #2ECC71; /* Highlight color */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.instagram-highlight p a:hover {
+    text-decoration: underline;
+}
+
+.instagram-icon-link img {
+    height: 40px; /* Icon size */
+    width: auto;
+    display: inline-block; /* Center the icon */
+}
+
+/* --- Footer --- */
+.main-footer-bottom {
+    background-color: #111; /* Darker footer */
+    color: #aaa; /* Slightly dimmer text */
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo img {
+    height: 60px; /* Increased logo size */
+    margin-bottom: 10px;
+    width: auto;
+}
+
+.footer-logo p {
+    color: #aaa;
+}
+
+.footer-social p {
+     color: #aaa;
+}
+
+.footer-social img {
+    height: 30px;
+    margin-left: 15px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    filter: brightness(0.8); /* Dim icons slightly */
+}
+
+.footer-social a:hover img {
+    opacity: 1;
+    filter: brightness(1);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #333; /* Darker border */
+    padding-top: 20px;
+    color: #888;
+}
+
+/* --- WhatsApp Float Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        margin-top: 30px;
+        max-width: 350px;
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    .section-para-quem ul {
+        columns: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px;
+    }
+    .main-nav li {
+        margin-left: 0;
+    }
+    .btn-header-cta {
+        margin-top: 10px;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    .hero-text .subtitle {
+        font-size: 1.1rem;
+    }
+    .btn-hero-cta, .btn-final-cta {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+    .section {
+        padding: 40px 0;
+    }
+    .section-metodo .pilares-grid {
+        grid-template-columns: 1fr; /* Stack pilares on smaller screens */
+    }
+    .section-depoimentos .depoimentos-grid {
+        grid-template-columns: 1fr; /* Stack depoimentos */
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-social {
+        margin-top: 15px;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
