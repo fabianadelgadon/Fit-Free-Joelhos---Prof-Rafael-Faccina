@@ -1,219 +1,515 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Recupere a liberdade dos seus joelhos! Programa online Fit Free Joelhos com Prof. Rafael Faccina. Alívio da dor, fortalecimento e segurança para artrose, condromalácia e mais.">
-    <title>Fit Free Joelhos | Prof. Rafael Faccina - Chega de Dor no Joelho</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Futuramente adicionar Favicon -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fit Free Joelhos — Rafael Faccina, educador físico especialista em joelho. Treino seguro para condromalacia, artrose e lesões. Academia ou casa.">
+<title>Fit Free Joelhos | Rafael Faccina — Especialista em Joelho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --r:#DC2626;--r2:#991B1B;--o:#F97316;
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#141414;--bg4:#1a1a1a;
+  --white:#FFFFFF;--g1:#F9FAFB;--g2:#9CA3AF;--g3:#6B7280;--g4:#374151;
+  --green2:#4ADE80;--radius:16px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.section-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--r);margin-bottom:14px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(220,38,38,.3),transparent)}
+.noise{position:absolute;inset:0;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+ 
+/* WPP SVG reutilizável */
+.wsvg{display:inline-block;vertical-align:middle;flex-shrink:0}
+ 
+/* ── BOTÕES ── */
+.btn-primary{display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  color:var(--white);padding:18px 36px;border-radius:100px;
+  font-weight:800;font-size:15px;
+  box-shadow:0 8px 40px rgba(220,38,38,.4);transition:all .25s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 50px rgba(220,38,38,.55)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(255,255,255,.15);color:var(--g2);
+  padding:18px 30px;border-radius:100px;font-weight:600;font-size:15px;transition:all .25s}
+.btn-outline:hover{border-color:rgba(255,255,255,.4);color:var(--white)}
+ 
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;
+  padding:0 32px;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,8,8,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.06);transition:background .3s}
+.nav-logo{font-family:'Bebas Neue';font-size:22px;letter-spacing:1px}
+.nav-logo span{color:var(--r)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:13px;font-weight:600;color:var(--g2);white-space:nowrap;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{display:inline-flex!important;align-items:center;gap:8px;
+  background:var(--r)!important;color:var(--white)!important;
+  padding:10px 20px;border-radius:100px;font-size:13px;font-weight:700!important;
+  white-space:nowrap;transition:all .2s!important}
+.nav-cta:hover{background:var(--r2)!important;transform:translateY(-1px)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--white);border-radius:2px}
+@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;z-index:199;
+  background:rgba(8,8,8,.98);backdrop-filter:blur(20px);
+  padding:24px 32px;flex-direction:column;gap:4px;
+  border-bottom:1px solid rgba(255,255,255,.07)}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:15px;font-weight:600;color:var(--g2);padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);transition:color .2s}
+.mob-menu a:hover{color:var(--white)}
+.mob-cta{background:var(--r)!important;color:var(--white)!important;
+  text-align:center;padding:14px!important;border-radius:12px;
+  border-bottom:none!important;margin-top:8px}
+ 
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;
+  padding:100px 24px 80px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 90% 65% at 50% -5%,rgba(220,38,38,.22) 0%,transparent 65%),
+    radial-gradient(ellipse 45% 35% at 92% 85%,rgba(249,115,22,.1) 0%,transparent 55%),
+    radial-gradient(ellipse 35% 30% at 8% 65%,rgba(220,38,38,.07) 0%,transparent 55%)}
+.hero-inner{max-width:1080px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;text-align:center}}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);
+  padding:8px 18px;border-radius:100px;
+  font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--r);
+  margin-bottom:28px;animation:fadeUp .5s ease both}
+.hero-h1{font-family:'Bebas Neue';font-size:clamp(52px,7vw,82px);line-height:.9;
+  margin-bottom:24px;animation:fadeUp .6s ease .1s both}
+.hero-h1 em{color:var(--r);font-style:normal}
+.hero-h1 .ora{color:var(--o)}
+.hero-p{font-size:17px;color:var(--g2);line-height:1.7;max-width:480px;
+  margin-bottom:36px;animation:fadeUp .6s ease .2s both}
+@media(max-width:900px){.hero-p{margin-left:auto;margin-right:auto}}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .6s ease .3s both}
+@media(max-width:900px){.hero-btns{justify-content:center}}
+.hero-stats{display:flex;gap:36px;margin-top:44px;animation:fadeUp .6s ease .4s both}
+@media(max-width:900px){.hero-stats{justify-content:center}}
+.stat strong{font-family:'Bebas Neue';font-size:34px;color:var(--white);display:block;line-height:1}
+.stat span{font-size:12px;color:var(--g3);font-weight:500}
+.stat-sep{width:1px;background:rgba(255,255,255,.1);align-self:stretch}
+.hero-right{position:relative;z-index:1;animation:fadeUp .7s ease .25s both}
+@media(max-width:900px){.hero-right{display:none}}
+.hcard{background:var(--bg2);border:1px solid rgba(255,255,255,.07);
+  border-radius:24px;padding:32px;position:relative;
+  display:flex;flex-direction:column}
+.hcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--r),var(--o))}
+.hcard-badge{display:inline-flex;align-self:flex-start;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  padding:8px 18px;border-radius:100px;
+  font-size:11px;font-weight:800;letter-spacing:1px;color:var(--white);
+  white-space:nowrap;margin-bottom:14px}
+.hcard-title{font-family:'Bebas Neue';font-size:20px;color:var(--white);margin-bottom:20px}
+.pillar-list{display:flex;flex-direction:column;gap:12px}
+.pillar{display:flex;align-items:center;gap:14px;padding:14px;
+  background:rgba(255,255,255,.03);border-radius:12px;
+  border:1px solid rgba(255,255,255,.05);transition:border-color .2s}
+.pillar:hover{border-color:rgba(220,38,38,.25)}
+.p-icon{width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.25);
+  display:flex;align-items:center;justify-content:center;font-size:18px}
+.p-text strong{font-size:13px;font-weight:700;color:var(--white);display:block;margin-bottom:2px}
+.p-text span{font-size:12px;color:var(--g3)}
+ 
+/* ── PARA QUEM ── */
+.forquem{padding:96px 0;background:var(--bg2)}
+.fq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:48px}
+.fq-card{background:var(--bg3);border-radius:var(--radius);padding:24px;
+  border:1px solid rgba(220,38,38,.12);border-left:3px solid var(--r);
+  transition:transform .2s,border-color .2s}
+.fq-card:hover{transform:translateY(-4px);border-color:rgba(220,38,38,.35)}
+.fq-icon{font-size:26px;margin-bottom:14px}
+.fq-card h3{font-size:14px;font-weight:700;color:var(--white);margin-bottom:8px}
+.fq-card p{font-size:13px;color:var(--g2);line-height:1.6}
+ 
+/* ── SOBRE ── */
+.sobre{padding:96px 0}
+.sobre-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+@media(max-width:860px){.sobre-inner{grid-template-columns:1fr}}
+.foto-wrap{position:relative}
+@media(max-width:860px){.foto-wrap{max-width:340px;margin:0 auto 40px}}
+.foto-frame{width:100%;aspect-ratio:3/4;border-radius:24px;overflow:hidden;
+  background:var(--bg3);border:1px solid rgba(255,255,255,.06)}
+.foto-frame img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.foto-badge{position:absolute;bottom:-16px;right:-16px;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  padding:16px 22px;border-radius:16px;text-align:center;
+  box-shadow:0 8px 30px rgba(220,38,38,.4)}
+.foto-badge strong{font-family:'Bebas Neue';font-size:30px;color:var(--white);display:block;line-height:1}
+.foto-badge span{font-size:11px;color:rgba(255,255,255,.85);font-weight:600}
+.sobre-content h2{font-family:'Bebas Neue';font-size:clamp(36px,5vw,54px);line-height:.92;margin-bottom:20px}
+.sobre-content h2 em{color:var(--r);font-style:normal}
+.sobre-content p{font-size:15px;color:var(--g2);line-height:1.75;margin-bottom:14px}
+.cred-list{display:flex;flex-direction:column;gap:10px;margin:24px 0 32px}
+.cred-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--g1);font-weight:500}
+.cred-dot{width:22px;height:22px;border-radius:50%;flex-shrink:0;
+  background:rgba(22,163,74,.12);border:1px solid rgba(22,163,74,.3);
+  color:var(--green2);font-size:11px;font-weight:800;
+  display:flex;align-items:center;justify-content:center}
+ 
+/* ── MÉTODO ── */
+.metodo{padding:96px 0;background:var(--bg2)}
+.metodo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+@media(max-width:640px){.metodo-grid{grid-template-columns:1fr}}
+.m-card{background:var(--bg3);border-radius:20px;padding:28px;
+  border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;
+  transition:transform .25s,border-color .25s}
+.m-card:hover{transform:translateY(-4px);border-color:rgba(220,38,38,.28)}
+.m-num{position:absolute;top:16px;right:20px;
+  font-family:'Bebas Neue';font-size:72px;color:rgba(220,38,38,.07);line-height:1}
+.m-icon{width:48px;height:48px;border-radius:14px;
+  background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.22);
+  display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.m-card h3{font-family:'Bebas Neue';font-size:22px;color:var(--white);margin-bottom:10px}
+.m-card p{font-size:13.5px;color:var(--g2);line-height:1.65}
+.pratica{max-width:680px;margin:48px auto 0;
+  background:var(--bg3);border-radius:20px;padding:32px;
+  border:1px solid rgba(255,255,255,.06)}
+.pratica h3{font-family:'Bebas Neue';font-size:22px;color:var(--white);text-align:center;margin-bottom:24px}
+.step-list{display:flex;flex-direction:column;gap:18px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step-num{width:34px;height:34px;border-radius:50%;background:var(--r);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue';font-size:17px;color:var(--white);flex-shrink:0;
+  box-shadow:0 4px 14px rgba(220,38,38,.35)}
+.step-body strong{font-size:14px;font-weight:700;color:var(--white);display:block;margin-bottom:3px}
+.step-body p{font-size:13px;color:var(--g2);line-height:1.55}
+ 
+/* ── DEPOIMENTOS ── */
+.depoi{padding:96px 0}
+.depoi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:48px}
+.d-card{background:var(--bg2);border-radius:20px;padding:28px;border:1px solid rgba(255,255,255,.06)}
+.d-stars{color:var(--o);font-size:17px;letter-spacing:2px;margin-bottom:14px}
+.d-text{font-size:14px;color:var(--g1);line-height:1.72;font-style:italic;margin-bottom:18px}
+.d-author{display:flex;align-items:center;gap:12px}
+.d-avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue';font-size:18px;color:var(--white)}
+.d-name strong{font-size:13px;font-weight:700;color:var(--white);display:block}
+.d-name span{font-size:12px;color:var(--g3)}
+ 
+/* ── CTA FINAL ── */
+.cta-final{padding:100px 0;position:relative;overflow:hidden;text-align:center}
+.cta-glow{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 55% at 50% 50%,rgba(220,38,38,.13),transparent)}
+.cta-final h2{font-family:'Bebas Neue';font-size:clamp(42px,8vw,74px);
+  line-height:.9;margin-bottom:18px;position:relative}
+.cta-final h2 em{color:var(--r);font-style:normal}
+.cta-final p{font-size:17px;color:var(--g2);max-width:500px;
+  margin:0 auto 44px;line-height:1.65;position:relative}
+.wpp-direct{margin-top:16px;font-size:13px;color:var(--g4)}
+.wpp-direct a{color:var(--g3);transition:color .2s}
+.wpp-direct a:hover{color:var(--white)}
+ 
+/* ── INSTAGRAM ── */
+.insta{padding:72px 0;border-top:1px solid rgba(255,255,255,.05)}
+.insta-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.insta-text h3{font-family:'Bebas Neue';font-size:30px;color:var(--white);margin-bottom:4px}
+.insta-text p{font-size:14px;color:var(--g3)}
+.btn-insta{display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(255,255,255,.15);color:var(--white);
+  padding:14px 28px;border-radius:100px;font-weight:700;font-size:14px;transition:all .25s}
+.btn-insta:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.3)}
+ 
+/* ── FOOTER ── */
+footer{background:var(--bg3);padding:48px 24px 24px;border-top:1px solid rgba(255,255,255,.05)}
+.footer-grid{max-width:1080px;margin:0 auto;
+  display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;margin-bottom:40px}
+@media(max-width:700px){.footer-grid{grid-template-columns:1fr}}
+.f-brand .f-logo{font-family:'Bebas Neue';font-size:22px;margin-bottom:12px}
+.f-brand .f-logo span{color:var(--r)}
+.f-brand p{font-size:13px;color:var(--g3);line-height:1.7;max-width:260px}
+.f-col h4{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  color:var(--g4);margin-bottom:16px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-col ul li a{font-size:13px;color:var(--g3);transition:color .2s}
+.f-col ul li a:hover{color:var(--white)}
+.f-bottom{max-width:1080px;margin:0 auto;
+  border-top:1px solid rgba(255,255,255,.06);padding-top:24px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.f-bottom p{font-size:12px;color:var(--g4)}
+.f-bottom a{color:var(--r)}
+ 
+/* ── FLOATING WPP ── */
+.float-wpp{position:fixed;bottom:24px;right:24px;z-index:300;
+  width:58px;height:58px;border-radius:50%;background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(37,211,102,.45);transition:transform .2s,box-shadow .2s}
+.float-wpp:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,.65)}
+ 
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+</style>
 </head>
 <body>
-
-    <header class="main-header">
-        <div class="container">
-            <a href="#" class="logo-link">
-                <img src="logo-rafael-faccina.png" alt="Logo Rafael Faccina - Fit Free Joelhos" class="logo-img">
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#sobre-mim">O Professor</a></li>
-                    <li><a href="#para-quem">Para Quem É</a></li>
-                    <li><a href="#metodo">O Método</a></li>
-                    <li><a href="#beneficios">Benefícios</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#contato">Fale Comigo</a></li>
-                </ul>
-            </nav>
-            <a href="https://wa.me/5511947882500?text=Ol%C3%A1%2C+Prof.+Rafael%21+Vim+pelo+site+e+gostaria+de+saber+mais+sobre+o+Fit+Free+Joelhos." target="_blank" class="btn btn-primary btn-header-cta">Quero Aliviar Minha Dor</a>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero-section">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <h1>Seu Joelho Pede Socorro? Chega de Dor e Medo de se Movimentar!</h1>
-                    <p class="subtitle">Com o programa <strong>Fit Free Joelhos</strong>, você recupera a segurança, a força e a liberdade para viver sem limitações, mesmo com artrose, condromalácia, lesões ou pós-cirúrgico.</p>
-                    <a href="https://wa.me/5511947882500?text=Ol%C3%A1%2C+Prof.+Rafael%21+Vim+pelo+site+e+gostaria+de+saber+mais+sobre+o+Fit+Free+Joelhos." target="_blank" class="btn btn-primary btn-hero-cta">Sim, Quero Voltar a Viver Sem Dor!</a>
-                    <p class="cta-subtext">Fale diretamente comigo no WhatsApp e entenda como posso te ajudar.</p>
-                </div>
-                <div class="hero-image">
-                    <img src="professor-rafael.png" alt="Professor Rafael Faccina, especialista em dores no joelho">
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção Sobre Mim (Rafael Faccina) -->
-        <section id="sobre-mim" class="section section-sobre">
-            <div class="container">
-                <h2>Conheça o Mago do Joelho</h2>
-                <p>Olá! Sou o <strong>Professor Rafael Faccina</strong>, especialista em transformar a vida de pessoas que sofrem com dores no joelho. Com anos de experiência prática e estudo dedicado, desenvolvi o método Fit Free Joelhos para oferecer um caminho seguro, eficaz e acolhedor para você voltar a ter uma vida ativa e sem dor.</p>
-                <p>Minha missão é descomplicar o tratamento, usando uma linguagem acessível e exercícios adaptados à sua realidade, seja em casa ou na academia. Chega de soluções genéricas! Aqui, o foco é em você e na recuperação da sua liberdade.</p>
-            </div>
-        </section>
-
-        <!-- Seção Para Quem é Indicado -->
-        <section id="para-quem" class="section section-para-quem bg-light">
-            <div class="container">
-                <h2>O Fit Free Joelhos é Para Você Que...</h2>
-                <ul>
-                    <li>Sofre com dores recorrentes no joelho (artrose, condropatia, condromalácia, tendinite, lesões de menisco ou ligamentos).</li>
-                    <li>Sente medo ou insegurança ao se movimentar, subir escadas ou agachar.</li>
-                    <li>Quer evitar ou complementar tratamentos com remédios e cirurgias.</li>
-                    <li>Já tentou outras abordagens sem sucesso e ainda convive com dor ou travamentos.</li>
-                    <li>Busca um treino seguro, personalizado e que pode ser feito em casa ou na academia.</li>
-                    <li>Deseja recuperar a confiança e a autonomia para realizar suas atividades diárias sem limitações.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Seção O Método (Como Funciona) -->
-        <section id="metodo" class="section section-metodo">
-            <div class="container">
-                <h2>O Método Comprovado Para Joelhos Livres de Dor</h2>
-                <p>O Fit Free Joelhos não é apenas um treino, é um programa completo baseado em <strong>4 Pilares Essenciais</strong> para resultados duradouros:</p>
-                <div class="pilares-grid">
-                    <div class="pilar">
-                        <h3>1. Liberação Miofascial</h3>
-                        <p>Técnicas para soltar a musculatura tensa ao redor do joelho, aliviando a sobrecarga e preparando o corpo para o movimento.</p>
-                    </div>
-                    <div class="pilar">
-                        <h3>2. Alongamento Específico</h3>
-                        <p>Alongamentos direcionados para melhorar a flexibilidade dos músculos que influenciam diretamente a saúde do seu joelho.</p>
-                    </div>
-                    <div class="pilar">
-                        <h3>3. Mobilidade Articular</h3>
-                        <p>Exercícios para "lubrificar" a articulação, melhorar a amplitude de movimento e reduzir a rigidez.</p>
-                    </div>
-                    <div class="pilar">
-                        <h3>4. Fortalecimento Adaptado</h3>
-                        <p>Fortalecimento inteligente e progressivo dos músculos que protegem e estabilizam o joelho, respeitando sua condição atual.</p>
-                    </div>
-                </div>
-                <p><strong>Como funciona na prática?</strong></p>
-                <ol>
-                    <li><strong>Avaliação Individualizada:</strong> Entendo seu histórico, suas dores e seus objetivos.</li>
-                    <li><strong>Plano Personalizado:</strong> Crio um treino adaptado para você, com vídeos explicativos e passo a passo.</li>
-                    <li><strong>Acompanhamento Contínuo:</strong> Estou disponível no WhatsApp para tirar dúvidas e ajustar o treino conforme sua evolução.</li>
-                </ol>
-                <div class="text-center">
-                    <a href="https://wa.me/5511947882500?text=Ol%C3%A1%2C+Prof.+Rafael%21+Quero+entender+melhor+como+funciona+o+m%C3%A9todo+Fit+Free+Joelhos." target="_blank" class="btn btn-secondary">Quero Entender Meu Caso</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção Benefícios -->
-        <section id="beneficios" class="section section-beneficios bg-light">
-            <div class="container">
-                <h2>Resultados Que Você Vai Sentir (e Ver!)</h2>
-                <ul>
-                    <li>✅ Alívio significativo e progressivo das dores no joelho.</li>
-                    <li>✅ Mais segurança e confiança para caminhar, agachar e subir escadas.</li>
-                    <li>✅ Fortalecimento dos músculos que protegem sua articulação.</li>
-                    <li>✅ Aumento da mobilidade e flexibilidade.</li>
-                    <li>✅ Redução da rigidez e dos estalos.</li>
-                    <li>✅ Possibilidade de reduzir o uso de medicamentos para dor.</li>
-                    <li>✅ Autonomia para treinar onde e quando quiser (casa ou academia).</li>
-                    <li>✅ Acompanhamento próximo de um especialista para garantir sua segurança.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Seção Depoimentos -->
-        <section id="depoimentos" class="section section-depoimentos">
-            <div class="container">
-                <h2>Quem Fez, Aprova! Veja Histórias Reais:</h2>
-                <div class="depoimentos-grid">
-                    <!-- Placeholder para Vídeo 1 -->
-                    <div class="depoimento-video">
-                        <video controls preload="metadata">
-                            <source src="depoimento-01.mp4#t=0.5" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
-                        </video>
-                        <p>"Depoimento Aluno 1..."</p> <!-- Adicionar nome/descrição se disponível -->
-                    </div>
-                    <!-- Placeholder para Vídeo 2 -->
-                    <div class="depoimento-video">
-                        <video controls preload="metadata">
-                            <source src="depoimento-02.mp4#t=0.5" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
-                        </video>
-                        <p>"Depoimento Aluno 2..."</p>
-                    </div>
-                    <!-- Placeholder para Vídeo 3 -->
-                    <div class="depoimento-video">
-                        <video controls preload="metadata">
-                            <source src="depoimento-03.mp4#t=0.5" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
-                        </video>
-                        <p>"Depoimento Aluno 3..."</p>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <a href="https://wa.me/5511947882500?text=Ol%C3%A1%2C+Prof.+Rafael%21+Vi+os+depoimentos+e+quero+ser+o+pr%C3%B3ximo+caso+de+sucesso%21" target="_blank" class="btn btn-primary">Quero Ser o Próximo Caso de Sucesso!</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção Contato Final / CTA -->
-        <section id="contato" class="section section-contato bg-dark">
-            <div class="container">
-                <h2>Pronto Para Dar o Primeiro Passo Rumo a Joelhos Livres de Dor?</h2>
-                <p>Não adie mais sua qualidade de vida. Fale diretamente comigo no WhatsApp, tire suas dúvidas e descubra como o Fit Free Joelhos pode ser o divisor de águas que você tanto busca.</p>
-                <a href="https://wa.me/5511947882500?text=Ol%C3%A1%2C+Prof.+Rafael%21+Estou+decidido%28a%29+a+come%C3%A7ar+o+Fit+Free+Joelhos%21" target="_blank" class="btn btn-primary btn-final-cta">Falar Com o Prof. Rafael Agora!</a>
-
-                <!-- Vídeo Principal (Placeholder para programa.mp4) -->
-                <div class="video-principal-container">
-                     <h3>Entenda o Programa em 1 Minuto:</h3>
-                     <video controls preload="metadata">
-                         <source src="programa.mp4#t=0.5" type="video/mp4">
-                         Seu navegador não suporta o elemento de vídeo.
-                     </video>
-                </div>
-
-                <!-- Destaque Instagram -->
-                <div class="instagram-highlight">
-                    <h3>Acompanhe Dicas Diárias no Instagram!</h3>
-                    <p>Siga <a href="https://www.instagram.com/personalrafaelfaccina/" target="_blank">@personalrafaelfaccina</a> para mais conteúdo sobre exercicíos para reduzir dores nos joelhos.</p>
-                    <a href="https://www.instagram.com/personalrafaelfaccina/" target="_blank" aria-label="Instagram Rafael Faccina" class="instagram-icon-link">
-                        <img src="instagram-icon.png" alt="Instagram"> <!-- Usar SVG se possível -->
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="main-footer-bottom">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="logo-rafael-faccina.png" alt="Logo Rafael Faccina">
-                    <p>Prof. Rafael Faccina<br>Especialista em Joelhos</p>
-                </div>
-                <div class="footer-social">
-                    <p>Contato e Redes Sociais:</p>
-                    <a href="https://www.instagram.com/personalrafaelfaccina/" target="_blank" aria-label="Instagram Rafael Faccina">
-                        <img src="instagram-icon.png" alt="Instagram"> <!-- Usar SVG se possível -->
-                    </a>
-                    <a href="https://wa.me/5511947882500" target="_blank" aria-label="WhatsApp Rafael Faccina">
-                        <img src="whatsapp-icon.png" alt="WhatsApp"> <!-- Usar SVG se possível -->
-                    </a>
-                </div>
-            </div>
-            <p class="copyright">&copy; 2025 Fit Free Joelhos. Todos os direitos reservados. Desenvolvido por Manus AI.</p>
-            <!-- Links para Política de Privacidade / Termos de Uso podem ser adicionados aqui -->
-        </div>
-    </footer>
-
-    <!-- Botão Flutuante WhatsApp -->
-    <a href="https://wa.me/5511947882500?text=Ol%C3%A1%2C+Prof.+Rafael%21+Preciso+de+ajuda+com+meu+joelho." target="_blank" class="whatsapp-float" aria-label="Fale com Rafael Faccina no WhatsApp">
-        <img src="whatsapp-icon.png" alt="WhatsApp Icon">
+ 
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">FIT FREE <span>JOELHOS</span></a>
+  <div class="nav-links">
+    <a href="#sobre">Sobre</a>
+    <a href="#metodo">O Método</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Contato</a>
+    <a href="https://wa.me/5511947882500?text=Olá+Rafael!+Vim+pelo+site." class="nav-cta" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="13" height="13" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+      Falar com Rafael
     </a>
-
-    <!-- Futuramente adicionar script JS para menu mobile, etc. -->
-    <!-- <script src="script.js"></script> -->
-
+  </div>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+ 
+<div class="mob-menu" id="mobMenu">
+  <a href="#sobre" onclick="toggleMenu()">Sobre Rafael</a>
+  <a href="#metodo" onclick="toggleMenu()">O Método</a>
+  <a href="#depoimentos" onclick="toggleMenu()">Depoimentos</a>
+  <a href="#contato" onclick="toggleMenu()">Contato</a>
+  <a href="https://wa.me/5511947882500" class="mob-cta" target="_blank">💬 Falar no WhatsApp</a>
+</div>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="noise"></div>
+  <div class="hero-inner">
+    <div style="position:relative;z-index:1">
+      <div class="hero-tag">🦵 Especialista em Joelho</div>
+      <h1 class="hero-h1">CHEGA DE<br>SOFRER<br>COM <em>DOR</em><br>NO <span class="ora">JOELHO.</span></h1>
+      <p class="hero-p">Treino seguro e progressivo para condromalacia, artrose e lesões. Sem agachamento profundo. Sem piorar. Com resultado real — em casa ou na academia.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5511947882500?text=Olá+Rafael!+Vim+pelo+site+e+quero+saber+mais." class="btn-primary" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+          Falar com Rafael
+        </a>
+        <a href="#metodo" class="btn-outline">Ver o método</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>15</strong><span>anos formado</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><strong>16K+</strong><span>seguidores</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><strong>500+</strong><span>alunos atendidos</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hcard">
+        <div class="hcard-badge">O MÉTODO</div>
+        <div class="hcard-title">4 PILARES DO JOELHO SAUDÁVEL</div>
+        <div class="pillar-list">
+          <div class="pillar"><div class="p-icon">🔓</div><div class="p-text"><strong>Liberação Miofascial</strong><span>Soltar a tensão que comprime o joelho</span></div></div>
+          <div class="pillar"><div class="p-icon">🧘</div><div class="p-text"><strong>Alongamento Específico</strong><span>Flexibilidade dos músculos do joelho</span></div></div>
+          <div class="pillar"><div class="p-icon">⚙️</div><div class="p-text"><strong>Mobilidade Articular</strong><span>Lubrificar e liberar a amplitude</span></div></div>
+          <div class="pillar"><div class="p-icon">💪</div><div class="p-text"><strong>Fortalecimento Adaptado</strong><span>Progressivo, seguro e eficaz</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<!-- PARA QUEM -->
+<section class="forquem" id="para-quem">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">😣 Você se identifica?</div>
+      <h2 style="font-family:'Bebas Neue';font-size:clamp(36px,6vw,56px);line-height:.92;max-width:580px">SE VOCÊ VIVE COM ISSO,<br><span style="color:var(--o)">ESSE PROGRAMA É PRA VOCÊ</span></h2>
+    </div>
+    <div class="fq-grid">
+      <div class="fq-card reveal"><div class="fq-icon">🦵</div><h3>Dor na frente do joelho</h3><p>Aquele desconforto ao subir escadas, agachar ou depois de sentar por muito tempo.</p></div>
+      <div class="fq-card reveal"><div class="fq-icon">💥</div><h3>Estalo e crepitação</h3><p>O barulho que aparece toda vez que dobra o joelho e te lembra que algo não está certo.</p></div>
+      <div class="fq-card reveal"><div class="fq-icon">😰</div><h3>Medo de treinar errado</h3><p>Você fica na dúvida: "esse exercício vai piorar?" e acaba não treinando por medo.</p></div>
+      <div class="fq-card reveal"><div class="fq-icon">🔄</div><h3>Ciclo de para e volta</h3><p>Treina, piora, para, descansa, volta... o ciclo não termina porque a causa nunca foi resolvida.</p></div>
+      <div class="fq-card reveal"><div class="fq-icon">💊</div><h3>Dependência de remédios</h3><p>Antiinflamatório toda semana. Funcionou por um tempo, mas a dor sempre volta.</p></div>
+      <div class="fq-card reveal"><div class="fq-icon">🚫</div><h3>Limitações no dia a dia</h3><p>Deixou de fazer atividades que ama. Caminhada, academia, lazer — tudo virou risco.</p></div>
+    </div>
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="foto-wrap reveal">
+        <div class="foto-frame">
+          <img src="professor-rafael.jpg" alt="Rafael Faccina — Educador Físico Especialista em Joelho">
+        </div>
+        <div class="foto-badge"><strong>500+</strong><span>alunos atendidos</span></div>
+      </div>
+      <div class="reveal">
+        <div class="section-label">👋 Quem é Rafael</div>
+        <h2 class="sobre-content">EDUCADOR FÍSICO<br><em>ESPECIALISTA</em><br>EM JOELHO</h2>
+        <p style="font-size:15px;color:var(--g2);line-height:1.75;margin-bottom:14px">Sou o Rafael Faccina. Educador físico há <strong style="color:var(--white)">15 anos</strong>, com especialização em joelho. Dedico minha carreira a ajudar pessoas com dores no joelho a voltarem a se mover com segurança e confiança.</p>
+        <p style="font-size:15px;color:var(--g2);line-height:1.75;margin-bottom:14px">Desenvolvi o método Fit Free Joelhos para oferecer um caminho claro — sem achismo, sem exercício genérico, sem medo. Baseado em ciência e na prática real com centenas de alunos.</p>
+        <div class="cred-list">
+          <div class="cred-item"><div class="cred-dot">✓</div>15 anos de experiência como educador físico</div>
+          <div class="cred-item"><div class="cred-dot">✓</div>Especialista em condromalacia, artrose e lesões de joelho</div>
+          <div class="cred-item"><div class="cred-dot">✓</div>Treino adaptado para casa ou academia</div>
+          <div class="cred-item"><div class="cred-dot">✓</div>Acompanhamento direto via WhatsApp</div>
+          <div class="cred-item"><div class="cred-dot">✓</div>+16 mil seguidores no Instagram</div>
+        </div>
+        <a href="https://wa.me/5511947882500?text=Olá+Rafael!+Vi+seu+site+e+quero+conversar+sobre+meu+joelho." class="btn-primary" target="_blank" style="display:inline-flex">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+          Conversar com Rafael
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<!-- MÉTODO -->
+<section class="metodo" id="metodo">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto">
+      <div class="section-label">⚙️ Como funciona</div>
+      <h2 style="font-family:'Bebas Neue';font-size:clamp(36px,6vw,56px);line-height:.92;margin-bottom:14px">O MÉTODO QUE<br><span style="color:var(--r)">REALMENTE FUNCIONA</span></h2>
+      <p style="font-size:15px;color:var(--g2)">Não é treino qualquer. É um programa completo em 4 pilares que atacam a raiz do problema.</p>
+    </div>
+    <div class="metodo-grid">
+      <div class="m-card reveal"><div class="m-num">1</div><div class="m-icon">🔓</div><h3>Liberação Miofascial</h3><p>Técnicas para soltar a musculatura tensa ao redor do joelho, aliviando a sobrecarga imediata e preparando o corpo para o treino.</p></div>
+      <div class="m-card reveal"><div class="m-num">2</div><div class="m-icon">🧘</div><h3>Alongamento Específico</h3><p>Alongamentos para os músculos que influenciam diretamente o joelho — isquiotibiais, quadríceps, IT band e panturrilha.</p></div>
+      <div class="m-card reveal"><div class="m-num">3</div><div class="m-icon">⚙️</div><h3>Mobilidade Articular</h3><p>Exercícios que lubrificam a articulação, melhoram a amplitude de movimento e reduzem rigidez e travamento.</p></div>
+      <div class="m-card reveal"><div class="m-num">4</div><div class="m-icon">💪</div><h3>Fortalecimento Adaptado</h3><p>Fortalecimento progressivo de glúteos, VMO e estabilizadores — sem agredir a cartilagem.</p></div>
+    </div>
+    <div class="pratica reveal">
+      <h3>COMO FUNCIONA NA PRÁTICA</h3>
+      <div class="step-list">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Avaliação Individualizada</strong><p>Rafael entende seu histórico, suas dores e seus objetivos antes de montar qualquer plano.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Plano Personalizado</strong><p>Treino adaptado para você — para casa ou academia, respeitando sua condição atual.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Acompanhamento Contínuo</strong><p>Suporte direto no WhatsApp para tirar dúvidas e ajustar o treino conforme sua evolução.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<!-- DEPOIMENTOS -->
+<section class="depoi" id="depoimentos">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto">
+      <div class="section-label">⭐ Resultados reais</div>
+      <h2 style="font-family:'Bebas Neue';font-size:clamp(36px,6vw,52px);line-height:.92">QUEM FEZ,<br><span style="color:var(--o)">APROVA</span></h2>
+    </div>
+    <div class="depoi-grid">
+      <div class="d-card reveal"><div class="d-stars">★★★★★</div><p class="d-text">"Tinha medo de treinar pernas por causa da condromalacia. Com o método do Rafael aprendi quais exercícios fazer de verdade. Em 3 semanas a dor diminuiu muito."</p><div class="d-author"><div class="d-avatar">A</div><div class="d-name"><strong>Ana Paula</strong><span>Condromalacia bilateral</span></div></div></div>
+      <div class="d-card reveal"><div class="d-stars">★★★★★</div><p class="d-text">"Já tinha tentado fisioterapeuta, médico, remédio. Nada resolvia. O Rafael me deu um plano claro e finalmente estou conseguindo treinar sem dor."</p><div class="d-author"><div class="d-avatar">M</div><div class="d-name"><strong>Marcos Lima</strong><span>Artrose no joelho direito</span></div></div></div>
+      <div class="d-card reveal"><div class="d-stars">★★★★★</div><p class="d-text">"Nunca pensei que ia conseguir treinar de novo sem sentir dor. O método é diferente de tudo que tentei. Simples, direto e funciona de verdade."</p><div class="d-author"><div class="d-avatar">C</div><div class="d-name"><strong>Carla Mendes</strong><span>Condromalacia patelar</span></div></div></div>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:40px">
+      <a href="https://wa.me/5511947882500?text=Olá+Rafael!+Quero+ser+o+próximo+caso+de+sucesso!" class="btn-primary" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        Quero ser o próximo caso de sucesso
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
+<!-- CTA FINAL -->
+<section class="cta-final" id="contato">
+  <div class="noise"></div>
+  <div class="cta-glow"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="reveal">
+      <h2>SEU JOELHO PODE<br><em>MELHORAR.</em><br>DEPENDE DO<br>PRÓXIMO PASSO.</h2>
+      <p>Não adie mais sua qualidade de vida. Fale diretamente com Rafael e descubra o plano certo para o seu caso.</p>
+      <a href="https://wa.me/5511947882500?text=Olá+Rafael!+Vim+pelo+site+e+quero+começar!" class="btn-primary" target="_blank" style="display:inline-flex">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="17" height="17" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        Falar com Rafael agora
+      </a>
+      <p class="wpp-direct">Ou acesse: <a href="https://wa.me/5511947882500" target="_blank">wa.me/5511947882500</a></p>
+    </div>
+  </div>
+</section>
+ 
+<!-- INSTAGRAM -->
+<section class="insta">
+  <div class="container">
+    <div class="insta-inner reveal">
+      <div class="insta-text">
+        <h3>SIGA NO INSTAGRAM</h3>
+        <p>Conteúdo gratuito sobre joelho todos os dias — exercícios, erros, dicas e muito mais.</p>
+      </div>
+      <a href="https://www.instagram.com/personalrafaelfaccina/" class="btn-insta" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
+          <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+        </svg>
+        @personalrafaelfaccina
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <div class="f-logo">FIT FREE <span>JOELHOS</span></div>
+      <p>Treino seguro e progressivo para quem tem dor no joelho. Academia ou casa. Resultado real.</p>
+    </div>
+    <div class="f-col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#sobre">Sobre Rafael</a></li>
+        <li><a href="#metodo">O Método</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="https://wa.me/5511947882500" target="_blank">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/personalrafaelfaccina/" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <p>© 2025 Fit Free Joelhos · <a href="#">Rafael Faccina</a></p>
+    <p>Feito com ❤️ para quem quer treinar sem dor</p>
+  </div>
+</footer>
+ 
+<!-- FLOATING WPP -->
+<a href="https://wa.me/5511947882500?text=Olá+Rafael!+Vim+pelo+site!" class="float-wpp" target="_blank" title="Falar no WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
+ 
+<script>
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+document.querySelectorAll('.mob-menu a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('mobMenu').classList.remove('open'))
+})
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:0.1})
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.background=
+    window.scrollY>50?'rgba(8,8,8,0.98)':'rgba(8,8,8,0.92)'
+})
+</script>
 </body>
 </html>
+ 
