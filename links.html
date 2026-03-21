@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rafael Faccina — Educador Físico Especialista em Joelho. Fit Free Joelhos.">
+<title>Rafael Faccina | Links</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --r:#DC2626;--r2:#991B1B;--o:#F97316;
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#161616;
+  --white:#fff;--g1:#F9FAFB;--g2:#9CA3AF;--g3:#6B7280;--g4:#374151;
+  --green:#25D366;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  font-family:'Figtree',sans-serif;
+  color:var(--white);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0 20px 60px;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* ── GLOW DE FUNDO ── */
+.bg-glow{
+  position:fixed;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% -10%,rgba(220,38,38,.15) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 90% 80%,rgba(249,115,22,.06) 0%,transparent 55%);
+}
+.noise{
+  position:fixed;inset:0;pointer-events:none;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── WRAPPER ── */
+.wrap{
+  width:100%;max-width:480px;
+  display:flex;flex-direction:column;
+  align-items:center;
+  position:relative;z-index:1;
+}
+
+/* ── PERFIL ── */
+.profile{
+  display:flex;flex-direction:column;
+  align-items:center;
+  padding:48px 0 36px;
+  text-align:center;
+}
+.avatar-ring{
+  width:96px;height:96px;border-radius:50%;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  padding:3px;margin-bottom:16px;
+  box-shadow:0 8px 32px rgba(220,38,38,.35);
+}
+.avatar-inner{
+  width:100%;height:100%;border-radius:50%;
+  background:var(--bg3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue';font-size:36px;color:var(--white);
+  overflow:hidden;
+}
+.avatar-inner img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  border-radius:50%;
+}
+.profile-name{
+  font-family:'Bebas Neue';font-size:26px;color:var(--white);
+  letter-spacing:1px;margin-bottom:4px;
+}
+.profile-title{
+  font-size:13px;font-weight:600;color:var(--g2);
+  margin-bottom:12px;
+}
+.profile-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);
+  padding:5px 14px;border-radius:100px;
+  font-size:10px;font-weight:800;letter-spacing:3px;
+  text-transform:uppercase;color:var(--r);
+  margin-bottom:16px;
+}
+.profile-stats{
+  display:flex;gap:24px;
+}
+.stat strong{
+  font-family:'Bebas Neue';font-size:22px;color:var(--white);
+  display:block;line-height:1;
+}
+.stat span{font-size:10px;color:var(--g3);font-weight:500}
+.stat-sep{width:1px;background:rgba(255,255,255,.1)}
+
+/* ── LINKS ── */
+.links{
+  width:100%;
+  display:flex;flex-direction:column;
+  gap:12px;
+}
+
+/* Card base */
+.link-card{
+  width:100%;border-radius:16px;
+  text-decoration:none;color:var(--white);
+  display:flex;align-items:center;gap:16px;
+  padding:18px 20px;
+  transition:all .25s;
+  position:relative;overflow:hidden;
+}
+.link-card:hover{transform:translateY(-3px)}
+.link-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.03),transparent);
+  pointer-events:none;
+}
+
+/* Quiz — destaque máximo */
+.card-quiz{
+  background:linear-gradient(135deg,var(--r2),var(--r));
+  border:1px solid rgba(220,38,38,.5);
+  box-shadow:0 8px 32px rgba(220,38,38,.3);
+  padding:22px 20px;
+}
+.card-quiz:hover{box-shadow:0 14px 48px rgba(220,38,38,.5)}
+
+/* WhatsApp */
+.card-wpp{
+  background:rgba(37,211,102,.1);
+  border:1px solid rgba(37,211,102,.3);
+}
+.card-wpp:hover{background:rgba(37,211,102,.18);border-color:rgba(37,211,102,.5)}
+
+/* Site */
+.card-site{
+  background:var(--bg2);
+  border:1px solid rgba(255,255,255,.08);
+}
+.card-site:hover{border-color:rgba(255,255,255,.2);background:var(--bg3)}
+
+/* Instagram */
+.card-insta{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+}
+.card-insta:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
+
+/* Ícone do card */
+.card-ico{
+  width:46px;height:46px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+}
+.card-quiz .card-ico{background:rgba(255,255,255,.15)}
+.card-wpp .card-ico{background:rgba(37,211,102,.15)}
+.card-site .card-ico{background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.2)}
+.card-insta .card-ico{
+  background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+}
+
+/* Texto do card */
+.card-body{flex:1}
+.card-label{
+  font-size:9px;font-weight:800;letter-spacing:3px;
+  text-transform:uppercase;opacity:.6;display:block;margin-bottom:3px;
+}
+.card-quiz .card-label{color:rgba(255,255,255,.8)}
+.card-wpp .card-label{color:var(--green)}
+.card-site .card-label{color:var(--r)}
+.card-insta .card-label{color:var(--g3)}
+
+.card-title{
+  font-size:15px;font-weight:700;color:var(--white);
+  display:block;margin-bottom:2px;line-height:1.3;
+}
+.card-quiz .card-title{font-size:17px;font-weight:800}
+.card-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.4}
+.card-quiz .card-desc{color:rgba(255,255,255,.75)}
+.card-wpp .card-desc{color:rgba(255,255,255,.55)}
+
+/* Seta */
+.card-arrow{
+  font-size:18px;color:rgba(255,255,255,.3);flex-shrink:0;
+  transition:transform .2s;
+}
+.link-card:hover .card-arrow{transform:translateX(4px);color:rgba(255,255,255,.6)}
+.card-quiz .card-arrow{color:rgba(255,255,255,.6)}
+
+/* Badge GRÁTIS */
+.badge-free{
+  position:absolute;top:10px;right:14px;
+  background:var(--o);
+  padding:3px 8px;border-radius:100px;
+  font-size:8px;font-weight:800;letter-spacing:1px;
+  text-transform:uppercase;color:var(--white);
+}
+
+/* ── DIVISOR ── */
+.divider-line{
+  width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+  margin:8px 0;
+}
+
+/* ── FOOTER ── */
+.footer{
+  margin-top:40px;text-align:center;
+  font-size:11px;color:var(--g4);line-height:1.8;
+}
+.footer strong{color:var(--g3);font-weight:600}
+
+/* ── ANIMAÇÕES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.profile{animation:fadeUp .5s ease both}
+.link-card:nth-child(1){animation:fadeUp .5s ease .1s both}
+.link-card:nth-child(2){animation:fadeUp .5s ease .2s both}
+.link-card:nth-child(3){animation:fadeUp .5s ease .25s both}
+.link-card:nth-child(4){animation:fadeUp .5s ease .3s both}
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="noise"></div>
+
+<div class="wrap">
+
+  <!-- ══ PERFIL ══ -->
+  <div class="profile">
+    <div class="avatar-ring">
+      <div class="avatar-inner">
+        <img src="professor-rafael.jpg" alt="Rafael Faccina"
+          onerror="this.style.display='none';this.parentNode.innerHTML='RF'">
+      </div>
+    </div>
+    <div class="profile-name">RAFAEL FACCINA</div>
+    <div class="profile-title">Educador Físico · Especialista em Joelho</div>
+    <div class="profile-tag">🦵 Fit Free Joelhos</div>
+    <div class="profile-stats">
+      <div class="stat"><strong>15</strong><span>anos formado</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><strong>16K+</strong><span>seguidores</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><strong>500+</strong><span>alunos</span></div>
+    </div>
+  </div>
+
+  <!-- ══ LINKS ══ -->
+  <div class="links">
+
+    <!-- 1. QUIZ -->
+    <a href="https://fitfreejoelhos.com.br/quiz" class="link-card card-quiz" target="_blank">
+      <div class="card-ico">🦵</div>
+      <div class="card-body">
+        <span class="card-label">Quiz gratuito</span>
+        <span class="card-title">Qual é o problema do seu joelho?</span>
+        <span class="card-desc">Responda 5 perguntas e descubra agora</span>
+      </div>
+      <div class="card-arrow">→</div>
+      <div class="badge-free">GRÁTIS</div>
+    </a>
+
+    <!-- 2. WHATSAPP -->
+    <a href="https://wa.me/5511947882500?text=Olá+Rafael!+Vim+pelo+seu+Instagram+e+quero+saber+mais." class="link-card card-wpp" target="_blank">
+      <div class="card-ico">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="#25D366">
+          <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <span class="card-label">Atendimento direto</span>
+        <span class="card-title">Falar com Rafael no WhatsApp</span>
+        <span class="card-desc">(11) 94788-2500 · Resposta rápida</span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <div class="divider-line"></div>
+
+    <!-- 3. SITE -->
+    <a href="https://fitfreejoelhos.com.br" class="link-card card-site" target="_blank">
+      <div class="card-ico">🌐</div>
+      <div class="card-body">
+        <span class="card-label">Site oficial</span>
+        <span class="card-title">fitfreejoelhos.com.br</span>
+        <span class="card-desc">O método, sobre Rafael e depoimentos</span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <!-- 4. INSTAGRAM -->
+    <a href="https://www.instagram.com/personalrafaelfaccina/" class="link-card card-insta" target="_blank">
+      <div class="card-ico">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="white">
+          <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <span class="card-label">Instagram</span>
+        <span class="card-title">@personalrafaelfaccina</span>
+        <span class="card-desc">Conteúdo gratuito sobre joelho todo dia</span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer">
+    <strong>Rafael Faccina</strong> · Educador Físico · Especialista em Joelho<br>
+    © 2025 Fit Free Joelhos
+  </div>
+
+</div>
+</body>
+</html>
