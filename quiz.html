@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Quiz gratuito — Descubra o que está causando sua dor no joelho. Rafael Faccina, especialista em joelho.">
+<title>Quiz do Joelho | Rafael Faccina</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --r:#DC2626;--r2:#991B1B;--o:#F97316;
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#141414;--bg4:#1a1a1a;
+  --white:#fff;--g1:#F9FAFB;--g2:#9CA3AF;--g3:#6B7280;--g4:#374151;
+  --green:#25D366;--green2:#4ADE80;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  padding:0 16px 48px;overflow-x:hidden}
+
+/* ── NOISE ── */
+.noise{position:fixed;inset:0;pointer-events:none;opacity:.025;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── HEADER ── */
+.site-header{width:100%;max-width:580px;padding:20px 0 0;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;z-index:1}
+.logo{font-family:'Bebas Neue';font-size:20px;color:var(--white);letter-spacing:1px}
+.logo span{color:var(--r)}
+
+/* ── WRAPPER ── */
+.quiz-wrap{width:100%;max-width:580px;position:relative;z-index:1;margin-top:32px}
+
+/* ── PROGRESSO ── */
+.progress-bar-wrap{margin-bottom:32px}
+.progress-info{display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:10px}
+.progress-label{font-size:12px;font-weight:600;color:var(--g3);letter-spacing:2px;
+  text-transform:uppercase}
+.progress-count{font-size:12px;font-weight:700;color:var(--r)}
+.progress-track{height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--r),var(--o));
+  border-radius:2px;transition:width .5s ease}
+
+/* ── CARD DE PERGUNTA ── */
+.question-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.06);
+  border-radius:24px;padding:40px 36px;
+  animation:fadeUp .4s ease both}
+.q-tag{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);
+  padding:6px 14px;border-radius:100px;
+  font-size:10px;font-weight:800;letter-spacing:3px;
+  text-transform:uppercase;color:var(--r);margin-bottom:20px}
+.q-text{font-family:'Bebas Neue';font-size:clamp(28px,7vw,40px);
+  line-height:1.0;color:var(--white);margin-bottom:32px}
+.q-text em{color:var(--r);font-style:normal}
+
+/* ── OPÇÕES ── */
+.options{display:flex;flex-direction:column;gap:12px}
+.option{display:flex;align-items:center;gap:16px;
+  background:var(--bg3);border:2px solid rgba(255,255,255,0.06);
+  border-radius:14px;padding:18px 20px;cursor:pointer;
+  transition:all .2s;text-align:left;width:100%}
+.option:hover{border-color:rgba(220,38,38,.4);background:rgba(220,38,38,.06);
+  transform:translateX(4px)}
+.option.selected{border-color:var(--r);background:rgba(220,38,38,.12)}
+.opt-icon{width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.2);
+  display:flex;align-items:center;justify-content:center;font-size:18px}
+.option.selected .opt-icon{background:var(--r);border-color:var(--r)}
+.opt-text strong{font-size:14px;font-weight:700;color:var(--white);
+  display:block;margin-bottom:2px}
+.opt-text span{font-size:12px;color:var(--g3)}
+
+/* ── BOTÃO PRÓXIMO ── */
+.btn-next{display:none;width:100%;margin-top:20px;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  color:var(--white);border:none;padding:18px;border-radius:14px;
+  font-family:'Figtree';font-weight:800;font-size:15px;
+  cursor:pointer;transition:all .25s;
+  box-shadow:0 8px 30px rgba(220,38,38,.35)}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(220,38,38,.5)}
+.btn-next.show{display:block;animation:fadeUp .3s ease both}
+
+/* ── TELA DE RESULTADO ── */
+.result-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.06);
+  border-radius:24px;padding:40px 36px;
+  animation:fadeUp .5s ease both;display:none}
+.result-card.show{display:block}
+.result-icon{font-size:56px;margin-bottom:16px;text-align:center}
+.result-tag{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);
+  padding:6px 14px;border-radius:100px;
+  font-size:10px;font-weight:800;letter-spacing:3px;
+  text-transform:uppercase;color:var(--r);margin-bottom:16px}
+.result-title{font-family:'Bebas Neue';font-size:clamp(32px,8vw,48px);
+  line-height:.95;color:var(--white);margin-bottom:16px}
+.result-title em{color:var(--r);font-style:normal}
+.result-desc{font-size:15px;color:var(--g2);line-height:1.7;margin-bottom:28px}
+
+/* Perfil boxes */
+.profile-boxes{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.profile-box{display:flex;align-items:flex-start;gap:14px;
+  background:var(--bg3);border-radius:12px;padding:16px;
+  border:1px solid rgba(255,255,255,.05)}
+.pb-ico{font-size:20px;flex-shrink:0;margin-top:1px}
+.pb-text strong{font-size:13px;font-weight:700;color:var(--white);display:block;margin-bottom:2px}
+.pb-text span{font-size:12px;color:var(--g3)}
+
+/* CTA resultado */
+.result-cta{background:rgba(220,38,38,.08);
+  border:1px solid rgba(220,38,38,.25);
+  border-radius:16px;padding:28px;text-align:center;margin-bottom:20px}
+.result-cta p{font-size:14px;color:var(--g2);line-height:1.65;margin-bottom:20px}
+.result-cta strong{color:var(--white)}
+.btn-wpp{display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--green);color:var(--white);
+  padding:18px 32px;border-radius:100px;
+  font-weight:800;font-size:15px;text-decoration:none;
+  box-shadow:0 8px 30px rgba(37,211,102,.35);transition:all .25s;
+  margin-bottom:12px}
+.btn-wpp:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(37,211,102,.5)}
+.btn-wpp svg{flex-shrink:0}
+.result-note{font-size:12px;color:var(--g4);text-align:center}
+
+/* Reiniciar */
+.btn-restart{display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;margin-top:16px;
+  border:1px solid rgba(255,255,255,.1);color:var(--g3);
+  padding:14px;border-radius:12px;
+  font-family:'Figtree';font-weight:600;font-size:13px;
+  cursor:pointer;background:transparent;transition:all .2s}
+.btn-restart:hover{border-color:rgba(255,255,255,.3);color:var(--white)}
+
+/* ── TELA DE CAPA ── */
+.cover-card{background:var(--bg2);border:1px solid rgba(255,255,255,.06);
+  border-radius:24px;padding:40px 36px;text-align:center;
+  animation:fadeUp .5s ease both}
+.cover-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(220,38,38,.15) 0%,transparent 65%);
+  pointer-events:none}
+.cover-tag{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);
+  padding:8px 18px;border-radius:100px;
+  font-size:10px;font-weight:800;letter-spacing:3px;
+  text-transform:uppercase;color:var(--r);margin-bottom:24px}
+.cover-h1{font-family:'Bebas Neue';font-size:clamp(38px,10vw,56px);
+  line-height:.92;margin-bottom:16px}
+.cover-h1 em{color:var(--r);font-style:normal}
+.cover-sub{font-size:16px;color:var(--g2);line-height:1.65;
+  max-width:400px;margin:0 auto 32px}
+.cover-meta{display:flex;justify-content:center;gap:24px;
+  margin-bottom:32px;flex-wrap:wrap}
+.meta-item{display:flex;align-items:center;gap:6px;font-size:12px;
+  color:var(--g3);font-weight:600}
+.meta-dot{width:6px;height:6px;border-radius:50%;background:var(--r)}
+.btn-start{display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  color:var(--white);border:none;padding:20px 48px;border-radius:100px;
+  font-family:'Figtree';font-weight:800;font-size:16px;cursor:pointer;
+  box-shadow:0 8px 40px rgba(220,38,38,.4);transition:all .25s}
+.btn-start:hover{transform:translateY(-3px);box-shadow:0 14px 50px rgba(220,38,38,.55)}
+.cover-author{margin-top:28px;display:flex;align-items:center;
+  justify-content:center;gap:12px}
+.author-avatar{width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue';font-size:20px;color:var(--white);flex-shrink:0}
+.author-info strong{font-size:13px;font-weight:700;color:var(--white);display:block}
+.author-info span{font-size:11px;color:var(--g3)}
+
+/* ── FOOTER ── */
+.site-footer{margin-top:32px;font-size:11px;color:var(--g4);
+  text-align:center;position:relative;z-index:1}
+
+/* ── ANIMAÇÕES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">FIT FREE <span>JOELHOS</span></div>
+</header>
+
+<div class="quiz-wrap">
+
+  <!-- ══ CAPA ══ -->
+  <div class="cover-card" id="cover">
+    <div class="cover-glow"></div>
+    <div class="cover-tag">🦵 Quiz Gratuito</div>
+    <h1 class="cover-h1">QUAL É O<br>PROBLEMA DO<br>SEU <em>JOELHO?</em></h1>
+    <p class="cover-sub">Responda 5 perguntas rápidas e descubra o que está causando sua dor — e o que fazer para melhorar.</p>
+    <div class="cover-meta">
+      <div class="meta-item"><div class="meta-dot"></div>5 perguntas</div>
+      <div class="meta-item"><div class="meta-dot"></div>2 minutos</div>
+      <div class="meta-item"><div class="meta-dot"></div>100% gratuito</div>
+    </div>
+    <button class="btn-start" onclick="startQuiz()">
+      🦵 Descobrir meu perfil
+    </button>
+    <div class="cover-author">
+      <div class="author-avatar">R</div>
+      <div class="author-info">
+        <strong>Rafael Faccina</strong>
+        <span>Educador Físico · Especialista em Joelho</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ QUIZ ══ -->
+  <div id="quiz" style="display:none">
+    <div class="progress-bar-wrap">
+      <div class="progress-info">
+        <span class="progress-label">Seu progresso</span>
+        <span class="progress-count" id="progress-count">1 de 5</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:20%"></div>
+      </div>
+    </div>
+
+    <div class="question-card" id="question-card">
+      <div class="q-tag" id="q-tag">Pergunta 1</div>
+      <div class="q-text" id="q-text"></div>
+      <div class="options" id="options"></div>
+    </div>
+
+    <button class="btn-next" id="btn-next" onclick="nextQuestion()">
+      Próxima pergunta →
+    </button>
+  </div>
+
+  <!-- ══ RESULTADO ══ -->
+  <div class="result-card" id="result"></div>
+
+</div>
+
+<footer class="site-footer">
+  Rafael Faccina · Especialista em Joelho · @personalrafaelfaccina
+</footer>
+
+<script>
+// ══════════════════════════════════════════
+// PERGUNTAS
+// ══════════════════════════════════════════
+const perguntas = [
+  {
+    tag: "Pergunta 1 de 5",
+    texto: "ONDE VOCÊ <em>SENTE A DOR</em> NO JOELHO?",
+    opcoes: [
+      { icon: "🔴", texto: "Na frente do joelho", desc: "Logo abaixo da rótula", valor: "frente" },
+      { icon: "🟠", texto: "Na lateral do joelho", desc: "Do lado de fora ou de dentro", valor: "lateral" },
+      { icon: "🟡", texto: "Atrás do joelho", desc: "Na parte posterior", valor: "atras" },
+      { icon: "⚪", texto: "Em todo o joelho", desc: "Dor generalizada", valor: "geral" },
+    ]
+  },
+  {
+    tag: "Pergunta 2 de 5",
+    texto: "QUANDO A DOR <em>APARECE</em> COM MAIS FORÇA?",
+    opcoes: [
+      { icon: "🪜", texto: "Ao subir ou descer escadas", desc: "Ou ao levantar de cadeiras", valor: "escada" },
+      { icon: "🏋️", texto: "Durante o treino", desc: "Agachamento, leg press, corrida", valor: "treino" },
+      { icon: "🪑", texto: "Depois de sentar por tempo", desc: "\"Sinal do cinema\"", valor: "sentado" },
+      { icon: "⏰", texto: "O tempo todo", desc: "Dor constante, mesmo em repouso", valor: "sempre" },
+    ]
+  },
+  {
+    tag: "Pergunta 3 de 5",
+    texto: "VOCÊ OUVE <em>ESTALO</em> NO JOELHO?",
+    opcoes: [
+      { icon: "💥", texto: "Sim, sempre", desc: "Em quase todo movimento", valor: "sempre" },
+      { icon: "🔄", texto: "Às vezes", desc: "Em alguns movimentos específicos", valor: "as_vezes" },
+      { icon: "❌", texto: "Não", desc: "Sem estalo ou crepitação", valor: "nao" },
+      { icon: "💢", texto: "Sim, com dor", desc: "O estalo vem acompanhado de dor", valor: "com_dor" },
+    ]
+  },
+  {
+    tag: "Pergunta 4 de 5",
+    texto: "JÁ TEVE <em>DIAGNÓSTICO</em> MÉDICO?",
+    opcoes: [
+      { icon: "🦵", texto: "Condromalácia patelar", desc: "Desgaste da cartilagem da rótula", valor: "condro" },
+      { icon: "🦴", texto: "Artrose no joelho", desc: "Desgaste progressivo da articulação", valor: "artrose" },
+      { icon: "🩺", texto: "Menisco ou ligamento", desc: "Lesão diagnosticada", valor: "menisco" },
+      { icon: "❓", texto: "Sem diagnóstico ainda", desc: "Não fui ao médico ou não sei", valor: "sem" },
+    ]
+  },
+  {
+    tag: "Pergunta 5 de 5",
+    texto: "HÁ QUANTO TEMPO VOCÊ <em>CONVIVE</em> COM ESSA DOR?",
+    opcoes: [
+      { icon: "🆕", texto: "Menos de 3 meses", desc: "Dor recente", valor: "recente" },
+      { icon: "📅", texto: "De 3 a 12 meses", desc: "Dor há alguns meses", valor: "medio" },
+      { icon: "📆", texto: "Mais de 1 ano", desc: "Dor crônica ou recorrente", valor: "longo" },
+      { icon: "🔄", texto: "Vai e volta há anos", desc: "Ciclo de melhora e piora", valor: "ciclico" },
+    ]
+  }
+]
+
+// ══════════════════════════════════════════
+// RESULTADOS
+// ══════════════════════════════════════════
+const resultados = {
+  condro: {
+    icon: "🦵",
+    tag: "Seu Perfil",
+    titulo: "CONDROMALÁCIA\nPATELAR",
+    desc: "Seu perfil aponta para condromalácia patelar — o desgaste da cartilagem que fica embaixo da rótula. É uma das causas mais comuns de dor no joelho e tem solução com o treino certo.",
+    boxes: [
+      { ico: "⚠️", titulo: "O que está acontecendo", desc: "A cartilagem patelar está sofrendo atrito excessivo, gerando dor e inflamação nos movimentos do dia a dia." },
+      { ico: "❌", titulo: "O que piora", desc: "Agachamento profundo, leg press com ângulo fechado, corrida no asfalto e longos períodos sentado." },
+      { ico: "✅", titulo: "O que ajuda", desc: "Fortalecimento do VMO, glúteos e core. Mobilidade de tornozelo e quadril. Exercícios em ângulos de proteção." },
+    ],
+    wpp: "Olá+Rafael!+Fiz+o+quiz+e+meu+perfil+indica+condromalácia+patelar.+Quero+saber+como+treinar+com+segurança."
+  },
+  artrose: {
+    icon: "🦴",
+    tag: "Seu Perfil",
+    titulo: "ARTROSE\nNO JOELHO",
+    desc: "Seu perfil aponta para artrose no joelho — o desgaste progressivo da articulação. A boa notícia: com treino adaptado é possível reduzir a dor, fortalecer o joelho e melhorar a qualidade de vida.",
+    boxes: [
+      { ico: "⚠️", titulo: "O que está acontecendo", desc: "A cartilagem articular está desgastada, gerando atrito, rigidez e dor especialmente nos primeiros movimentos do dia." },
+      { ico: "❌", titulo: "O que piora", desc: "Sedentarismo, sobrecarga excessiva, impacto repetido e fraqueza muscular ao redor do joelho." },
+      { ico: "✅", titulo: "O que ajuda", desc: "Movimento controlado, fortalecimento progressivo, bicicleta ergométrica e mobilidade articular diária." },
+    ],
+    wpp: "Olá+Rafael!+Fiz+o+quiz+e+meu+perfil+indica+artrose+no+joelho.+Quero+entender+como+treinar+com+segurança."
+  },
+  lateral: {
+    icon: "↔️",
+    tag: "Seu Perfil",
+    titulo: "DOR LATERAL\nNO JOELHO",
+    desc: "Seu perfil aponta para síndrome da banda iliotibial ou dor lateral no joelho — muito comum em quem pratica atividades repetitivas ou tem fraqueza no glúteo médio.",
+    boxes: [
+      { ico: "⚠️", titulo: "O que está acontecendo", desc: "A banda iliotibial (IT band) está inflamada e comprimindo a lateral do joelho, causando dor em movimentos de flexão." },
+      { ico: "❌", titulo: "O que piora", desc: "Corrida, ciclismo excessivo, subidas, exercícios sem aquecimento e glúteo médio fraco." },
+      { ico: "✅", titulo: "O que ajuda", desc: "Liberação miofascial com rolo, fortalecimento do glúteo médio, alongamento de IT band e ajuste do volume de treino." },
+    ],
+    wpp: "Olá+Rafael!+Fiz+o+quiz+e+meu+perfil+indica+dor+lateral+no+joelho.+Quero+saber+como+melhorar."
+  },
+  geral: {
+    icon: "🔍",
+    tag: "Seu Perfil",
+    titulo: "DOR\nNO JOELHO",
+    desc: "Seu perfil indica dor generalizada no joelho que pode ter múltiplas causas. Para um diagnóstico preciso e um plano personalizado, é importante uma avaliação individualizada.",
+    boxes: [
+      { ico: "⚠️", titulo: "O que pode estar acontecendo", desc: "Fraqueza muscular, desequilíbrio biomecânico, sobrecarga ou inflamação articular. Várias condições podem causar dor generalizada." },
+      { ico: "❌", titulo: "O que evitar", desc: "Treinar na dor, automedicar, parar completamente de se mover ou começar qualquer treino sem orientação." },
+      { ico: "✅", titulo: "O próximo passo", desc: "Uma avaliação individualizada para identificar a causa real e montar um plano seguro e progressivo para o seu caso." },
+    ],
+    wpp: "Olá+Rafael!+Fiz+o+quiz+e+tenho+dor+generalizada+no+joelho.+Preciso+de+uma+avaliação+personalizada."
+  }
+}
+
+// ══════════════════════════════════════════
+// LÓGICA DO QUIZ
+// ══════════════════════════════════════════
+let current = 0
+let respostas = []
+let selectedIndex = -1
+
+function startQuiz() {
+  document.getElementById('cover').style.display = 'none'
+  document.getElementById('quiz').style.display = 'block'
+  renderQuestion()
+}
+
+function renderQuestion() {
+  const q = perguntas[current]
+  selectedIndex = -1
+
+  document.getElementById('q-tag').textContent = q.tag
+  document.getElementById('q-text').innerHTML = q.texto
+  document.getElementById('progress-count').textContent = `${current + 1} de ${perguntas.length}`
+  document.getElementById('progress-fill').style.width = `${((current + 1) / perguntas.length) * 100}%`
+
+  const optionsEl = document.getElementById('options')
+  optionsEl.innerHTML = ''
+  q.opcoes.forEach((op, i) => {
+    const btn = document.createElement('button')
+    btn.className = 'option'
+    btn.innerHTML = `
+      <div class="opt-icon">${op.icon}</div>
+      <div class="opt-text">
+        <strong>${op.texto}</strong>
+        <span>${op.desc}</span>
+      </div>`
+    btn.onclick = () => selectOption(i, op.valor)
+    optionsEl.appendChild(btn)
+  })
+
+  const card = document.getElementById('question-card')
+  card.style.animation = 'none'
+  card.offsetHeight
+  card.style.animation = 'fadeUp .4s ease both'
+
+  document.getElementById('btn-next').classList.remove('show')
+}
+
+function selectOption(index, valor) {
+  document.querySelectorAll('.option').forEach((el, i) => {
+    el.classList.toggle('selected', i === index)
+  })
+  selectedIndex = index
+  respostas[current] = { index, valor }
+  document.getElementById('btn-next').classList.add('show')
+}
+
+function nextQuestion() {
+  if (selectedIndex === -1) return
+  current++
+  if (current < perguntas.length) {
+    renderQuestion()
+  } else {
+    showResult()
+  }
+}
+
+function getResultKey() {
+  const vals = respostas.map(r => r.valor)
+  // Lógica de resultado baseada nas respostas
+  if (vals[3] === 'condro') return 'condro'
+  if (vals[3] === 'artrose') return 'artrose'
+  if (vals[0] === 'lateral') return 'lateral'
+  if (vals[0] === 'frente' || vals[1] === 'escada' || vals[1] === 'sentado') return 'condro'
+  if (vals[3] === 'menisco') return 'lateral'
+  return 'geral'
+}
+
+function showResult() {
+  document.getElementById('quiz').style.display = 'none'
+  const key = getResultKey()
+  const r = resultados[key]
+  const el = document.getElementById('result')
+
+  const tituloFormatado = r.titulo.replace('\n', '<br>')
+
+  el.innerHTML = `
+    <div style="text-align:center;margin-bottom:24px">
+      <div class="result-icon">${r.icon}</div>
+      <div class="result-tag">✅ ${r.tag}</div>
+      <h2 class="result-title">${tituloFormatado}</h2>
+      <p class="result-desc">${r.desc}</p>
+    </div>
+    <div class="profile-boxes">
+      ${r.boxes.map(b => `
+        <div class="profile-box">
+          <div class="pb-ico">${b.ico}</div>
+          <div class="pb-text">
+            <strong>${b.titulo}</strong>
+            <span>${b.desc}</span>
+          </div>
+        </div>`).join('')}
+    </div>
+    <div class="result-cta">
+      <p><strong>Seu resultado está pronto.</strong><br>
+      O próximo passo é descobrir o plano exato para o seu caso. Fale com Rafael agora — avaliação gratuita pelo WhatsApp.</p>
+      <a class="btn-wpp" href="https://wa.me/5511947882500?text=${r.wpp}" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="white">
+          <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+        Falar com Rafael agora
+      </a>
+      <p class="result-note">Atendimento gratuito · Sem compromisso · Resposta rápida</p>
+    </div>
+    <button class="btn-restart" onclick="restartQuiz()">↩ Refazer o quiz</button>
+  `
+  el.classList.add('show')
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+function restartQuiz() {
+  current = 0
+  respostas = []
+  selectedIndex = -1
+  document.getElementById('result').classList.remove('show')
+  document.getElementById('result').innerHTML = ''
+  document.getElementById('quiz').style.display = 'block'
+  renderQuestion()
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+</script>
+</body>
+</html>
