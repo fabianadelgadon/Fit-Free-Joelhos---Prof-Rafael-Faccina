@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Treino gratuito para joelho — 9 exercícios em vídeo, do método Fit Free Joelhos. Alongamento, mobilidade, fortalecimento e liberação miofascial.">
+<title>Treino Gratuito para Joelho | Fit Free Joelhos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --r:#DC2626;--r2:#991B1B;--o:#F97316;
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#141414;--bg4:#1a1a1a;
+  --white:#FFFFFF;--g1:#F9FAFB;--g2:#9CA3AF;--g3:#6B7280;--g4:#374151;
+  --green2:#4ADE80;--radius:16px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:760px;margin:0 auto;padding:0 24px}
+.section-label{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--r);margin-bottom:14px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(220,38,38,.3),transparent)}
+.noise{position:absolute;inset:0;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.btn-primary{display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  color:var(--white);padding:16px 30px;border-radius:100px;
+  font-weight:800;font-size:14px;
+  box-shadow:0 8px 40px rgba(220,38,38,.4);transition:all .25s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 50px rgba(220,38,38,.55)}
+
+/* ── NAV SIMPLES ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;
+  padding:0 24px;display:flex;align-items:center;justify-content:center;
+  background:rgba(8,8,8,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-logo{font-family:'Bebas Neue';font-size:20px;letter-spacing:1px}
+.nav-logo span{color:var(--r)}
+
+/* ── HEADER ── */
+.header{padding:128px 24px 48px;position:relative;overflow:hidden;text-align:center}
+.header-glow{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 90% 65% at 50% -5%,rgba(220,38,38,.22) 0%,transparent 65%)}
+.tag{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);
+  padding:7px 18px;border-radius:100px;
+  font-size:10.5px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--r);
+  margin-bottom:22px;position:relative;z-index:1}
+h1.title{font-family:'Bebas Neue';font-size:clamp(38px,8vw,58px);line-height:.95;
+  margin-bottom:16px;position:relative;z-index:1}
+h1.title em{color:var(--r);font-style:normal}
+.header p{font-size:15px;color:var(--g2);max-width:480px;margin:0 auto;line-height:1.7;position:relative;z-index:1}
+.header p strong{color:var(--white)}
+
+/* ── INSTRUÇÕES ── */
+.intro{background:var(--bg2);border:1px solid rgba(255,255,255,.07);border-left:3px solid var(--r);
+  border-radius:14px;padding:22px 24px;margin:0 24px 8px}
+.intro h2{font-family:'Bebas Neue';font-size:18px;letter-spacing:.5px;margin-bottom:14px}
+.intro ul{list-style:none}
+.intro li{font-size:13.5px;color:var(--g2);padding:5px 0 5px 20px;position:relative;line-height:1.6}
+.intro li::before{content:"›";position:absolute;left:2px;color:var(--r);font-weight:800}
+.intro li strong{color:var(--white)}
+.intro .warn{color:#FCA5A5}
+
+/* ── FASES ── */
+.phases{padding:40px 24px 0}
+.phase-label{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  color:var(--o);margin:32px 0 16px;padding-bottom:8px;
+  border-bottom:1px solid rgba(249,115,22,.22);
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:6px}
+.phase-label small{color:var(--g3);font-weight:600;letter-spacing:.5px;text-transform:none;font-size:10.5px}
+@media(max-width:420px){
+  .phase-label{font-size:10px;letter-spacing:2px}
+  .phase-label small{display:none}
+}
+
+/* ── CARD EXERCÍCIO ── */
+.ex{background:var(--bg2);border:1px solid rgba(255,255,255,.06);border-radius:16px;
+  padding:20px;margin-bottom:14px;display:flex;gap:16px;align-items:flex-start;
+  transition:border-color .2s}
+.ex:hover{border-color:rgba(220,38,38,.25)}
+.ex-num{width:42px;height:42px;border-radius:11px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue';font-size:20px;color:var(--white)}
+.ex-body{flex:1;min-width:0}
+.ex-name{font-size:15.5px;font-weight:700;color:var(--white);margin-bottom:4px}
+.ex-cue{font-size:13px;color:var(--g2);line-height:1.55;margin-bottom:14px}
+.ex-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.reps{background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);color:#FCA5A5;
+  font-size:11px;font-weight:700;padding:6px 13px;border-radius:100px;white-space:nowrap}
+.watch{display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--r),var(--o));color:var(--white);
+  font-size:12px;font-weight:800;letter-spacing:.3px;
+  padding:9px 18px;border-radius:100px;white-space:nowrap;transition:transform .2s}
+.watch:hover{transform:translateY(-2px)}
+.watch svg{flex-shrink:0}
+
+@media(max-width:480px){
+  .ex{flex-direction:column}
+  .ex-num{margin-bottom:4px}
+  .ex-meta{justify-content:flex-start}
+}
+
+/* ── CTA FINAL ── */
+.cta-final{padding:56px 24px 80px;text-align:center;position:relative}
+.cta-glow{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 65% at 50% 50%,rgba(220,38,38,.14),transparent)}
+.cta-final h2{font-family:'Bebas Neue';font-size:clamp(30px,6vw,42px);line-height:.95;
+  margin-bottom:14px;position:relative;z-index:1}
+.cta-final h2 em{color:var(--r);font-style:normal}
+.cta-final p{font-size:14.5px;color:var(--g2);max-width:420px;margin:0 auto 32px;
+  line-height:1.65;position:relative;z-index:1}
+.wpp-direct{margin-top:18px;font-size:12.5px;color:var(--g4);position:relative;z-index:1}
+.wpp-direct a{color:var(--g3);transition:color .2s}
+.wpp-direct a:hover{color:var(--white)}
+
+/* ── FOOTER ── */
+footer{padding:28px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+footer p{font-size:11.5px;color:var(--g4);line-height:1.7}
+footer p.legal{margin-top:6px;color:#4B5563}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">FIT FREE <span>JOELHOS</span></a>
+</nav>
+
+<section class="header">
+  <div class="header-glow"></div>
+  <div class="noise"></div>
+  <div class="tag">🦵 Treino Gratuito</div>
+  <h1 class="title">SEU JOELHO<br>MAIS <em>FORTE</em></h1>
+  <p>Sequência completa em vídeo para aliviar a dor e fortalecer o joelho com segurança. Toque em <strong>Assistir vídeo</strong> em cada exercício e siga na ordem.</p>
+</section>
+
+<div class="intro reveal">
+  <h2>Antes de começar</h2>
+  <ul>
+    <li>Faça os exercícios <strong>na ordem apresentada</strong> — cada fase prepara a próxima.</li>
+    <li>Toque em <strong>Assistir vídeo</strong> para ver a execução correta de cada movimento.</li>
+    <li>Mantenha o movimento <strong>controlado</strong> e respire normalmente.</li>
+    <li>Frequência recomendada: <strong>3 a 4 vezes por semana</strong>.</li>
+    <li class="warn"><strong>Desconforto leve é normal. Dor aguda, não.</strong> Sentiu dor forte, pare e me chame no WhatsApp.</li>
+  </ul>
+</div>
+
+<section class="phases container">
+
+  <div class="phase-label reveal">Fase 1 — Alongamento <small>· prepara a musculatura</small></div>
+
+  <div class="ex reveal">
+    <div class="ex-num">1</div>
+    <div class="ex-body">
+      <div class="ex-name">Alongamento posterior com superband</div>
+      <div class="ex-cue">Deitado, perna elevada com a superband e joelho estendido. Sinta a parte de trás da coxa.</div>
+      <div class="ex-meta">
+        <span class="reps">30 segundos · cada perna</span>
+        <a class="watch" href="https://youtube.com/shorts/_hHuuBt91mM" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          ASSISTIR VÍDEO
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-label reveal">Fase 2 — Mobilidade <small>· libera e lubrifica a articulação</small></div>
+
+  <div class="ex reveal">
+    <div class="ex-num">2</div>
+    <div class="ex-body">
+      <div class="ex-name">Mobilidade de quadril</div>
+      <div class="ex-cue">Movimento amplo e controlado, dentro de uma amplitude confortável.</div>
+      <div class="ex-meta">
+        <span class="reps">3 × 30 repetições</span>
+        <a class="watch" href="https://youtube.com/shorts/psIq5tyLBmY" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          ASSISTIR VÍDEO
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex reveal">
+    <div class="ex-num">3</div>
+    <div class="ex-body">
+      <div class="ex-name">Mobilidade unilateral de quadril</div>
+      <div class="ex-cue">Uma perna de cada vez, sem intervalo entre as repetições.</div>
+      <div class="ex-meta">
+        <span class="reps">15 repetições · sem intervalo</span>
+        <a class="watch" href="https://youtube.com/shorts/jFPYcWK-gLc" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          ASSISTIR VÍDEO
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-label reveal">Fase 3 — Fortalecimento <small>· protege e estabiliza o joelho</small></div>
+
+  <div class="ex reveal">
+    <div class="ex-num">4</div>
+    <div class="ex-body">
+      <div class="ex-name">Agachamento com superband</div>
+      <div class="ex-cue">Superband prendendo as pernas. Desça até onde for confortável, joelhos alinhados com os pés.</div>
+      <div class="ex-meta">
+        <span class="reps">3 × 15 repetições</span>
+        <a class="watch" href="https://youtube.com/shorts/86F-srId0hs" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          ASSISTIR VÍDEO
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex reveal">
+    <div class="ex-num">5</div>
+    <div class="ex-body">
+      <div class="ex-name">Extensão de joelho com miniband</div>
+      <div class="ex-cue">Estenda o joelho contra a resistência da miniband, de forma controlada.</div>
+      <div class="ex-meta">
+        <span class="reps">15 repetições · cada lado</span>
+        <a class="watch" href="https://youtube.com/shorts/J61rPl9SWrc" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          ASSISTIR VÍDEO
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex reveal">
+    <div class="ex-num">6</div>
+    <div class="ex-body">
+      <div class="ex-name">Elevação pélvica sobre a bola suíça</div>
+      <div class="ex-cue">Pés sobre a bola. Suba o quadril e aperte o glúteo no topo do movimento.</div>
+      <div class="ex-meta">
+        <span class="reps">3 × 20 repetições</span>
+        <a class="watch" href="https://youtube.com/shorts/lgLrSwFqTXg" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          ASSISTIR VÍDEO
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex reveal">
+    <div class="ex-num">7</div>
+    <div class="ex-body">
+      <div class="ex-name">Movimento de ostra com miniband</div>
+      <div class="ex-cue">Deitado de lado, abra o joelho contra a miniband mantendo os pés juntos.</div>
+      <div class="ex-meta">
+        <span class="reps">3 × 15 repetições · cada lado</span>
+        <a class="watch" href="https://youtube.com/shorts/0-dg8trIwKQ" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          ASSISTIR VÍDEO
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex reveal">
+    <div class="ex-num">8</div>
+    <div class="ex-body">
+      <div class="ex-name">Panturrilha</div>
+      <div class="ex-cue">Elevação de calcanhares, subindo e descendo de forma controlada.</div>
+      <div class="ex-meta">
+        <span class="reps">3 × 20 repetições</span>
+        <a class="watch" href="https://youtube.com/shorts/Tw7NulYqjYw" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          ASSISTIR VÍDEO
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-label reveal">Fase 4 — Liberação miofascial <small>· relaxa e finaliza</small></div>
+
+  <div class="ex reveal">
+    <div class="ex-num">9</div>
+    <div class="ex-body">
+      <div class="ex-name">Liberação miofascial da panturrilha com rolo</div>
+      <div class="ex-cue">Role a panturrilha sobre o rolo, pausando nos pontos de maior tensão.</div>
+      <div class="ex-meta">
+        <span class="reps">1 × 30 segundos · cada perna</span>
+        <a class="watch" href="https://youtube.com/shorts/YkMbcOZ3_6w" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          ASSISTIR VÍDEO
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="cta-final">
+  <div class="cta-glow"></div>
+  <div class="container">
+    <div class="reveal">
+      <h2>GOSTOU DO <em>TREINO?</em></h2>
+      <p>Esse é só o começo. Quer um plano feito para o seu joelho, sua rotina e seu objetivo? Fale comigo.</p>
+      <a href="https://wa.me/5511947882500?text=Olá+Rafael!+Fiz+o+treino+gratuito+e+quero+um+plano+pra+mim." class="btn-primary" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="15" height="15" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        Falar com Rafael no WhatsApp
+      </a>
+      <p class="wpp-direct">Ou acesse: <a href="https://wa.me/5511947882500" target="_blank">wa.me/5511947882500</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>FIT FREE <span style="color:var(--r)">JOELHOS</span> · Rafael Faccina — Educador Físico especialista em joelho</p>
+  <p class="legal">Este material é educativo e não substitui avaliação médica individual.</p>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:0.1})
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+</script>
+</body>
+</html>
