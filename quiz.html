@@ -18,21 +18,21 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
   min-height:100vh;display:flex;flex-direction:column;align-items:center;
   padding:0 16px 48px;overflow-x:hidden}
-
+ 
 /* ── NOISE ── */
 .noise{position:fixed;inset:0;pointer-events:none;opacity:.025;z-index:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
+ 
 /* ── HEADER ── */
 .site-header{width:100%;max-width:580px;padding:20px 0 0;
   display:flex;align-items:center;justify-content:center;
   position:relative;z-index:1}
 .logo{font-family:'Bebas Neue';font-size:20px;color:var(--white);letter-spacing:1px}
 .logo span{color:var(--r)}
-
+ 
 /* ── WRAPPER ── */
 .quiz-wrap{width:100%;max-width:580px;position:relative;z-index:1;margin-top:32px}
-
+ 
 /* ── PROGRESSO ── */
 .progress-bar-wrap{margin-bottom:32px}
 .progress-info{display:flex;justify-content:space-between;align-items:center;
@@ -43,7 +43,7 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
 .progress-track{height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--r),var(--o));
   border-radius:2px;transition:width .5s ease}
-
+ 
 /* ── CARD DE PERGUNTA ── */
 .question-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.06);
   border-radius:24px;padding:40px 36px;
@@ -56,7 +56,7 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
 .q-text{font-family:'Bebas Neue';font-size:clamp(28px,7vw,40px);
   line-height:1.0;color:var(--white);margin-bottom:32px}
 .q-text em{color:var(--r);font-style:normal}
-
+ 
 /* ── OPÇÕES ── */
 .options{display:flex;flex-direction:column;gap:12px}
 .option{display:flex;align-items:center;gap:16px;
@@ -73,7 +73,7 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
 .opt-text strong{font-size:14px;font-weight:700;color:var(--white);
   display:block;margin-bottom:2px}
 .opt-text span{font-size:12px;color:var(--g3)}
-
+ 
 /* ── BOTÃO PRÓXIMO ── */
 .btn-next{display:none;width:100%;margin-top:20px;
   background:linear-gradient(135deg,var(--r),var(--o));
@@ -83,7 +83,7 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
   box-shadow:0 8px 30px rgba(220,38,38,.35)}
 .btn-next:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(220,38,38,.5)}
 .btn-next.show{display:block;animation:fadeUp .3s ease both}
-
+ 
 /* ── TELA DE RESULTADO ── */
 .result-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.06);
   border-radius:24px;padding:40px 36px;
@@ -99,7 +99,7 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
   line-height:.95;color:var(--white);margin-bottom:16px}
 .result-title em{color:var(--r);font-style:normal}
 .result-desc{font-size:15px;color:var(--g2);line-height:1.7;margin-bottom:28px}
-
+ 
 /* Perfil boxes */
 .profile-boxes{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
 .profile-box{display:flex;align-items:flex-start;gap:14px;
@@ -108,7 +108,7 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
 .pb-ico{font-size:20px;flex-shrink:0;margin-top:1px}
 .pb-text strong{font-size:13px;font-weight:700;color:var(--white);display:block;margin-bottom:2px}
 .pb-text span{font-size:12px;color:var(--g3)}
-
+ 
 /* CTA resultado */
 .result-cta{background:rgba(220,38,38,.08);
   border:1px solid rgba(220,38,38,.25);
@@ -124,7 +124,7 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
 .btn-wpp:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(37,211,102,.5)}
 .btn-wpp svg{flex-shrink:0}
 .result-note{font-size:12px;color:var(--g4);text-align:center}
-
+ 
 /* Reiniciar */
 .btn-restart{display:flex;align-items:center;justify-content:center;gap:8px;
   width:100%;margin-top:16px;
@@ -133,7 +133,7 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
   font-family:'Figtree';font-weight:600;font-size:13px;
   cursor:pointer;background:transparent;transition:all .2s}
 .btn-restart:hover{border-color:rgba(255,255,255,.3);color:var(--white)}
-
+ 
 /* ── TELA DE CAPA ── */
 .cover-card{background:var(--bg2);border:1px solid rgba(255,255,255,.06);
   border-radius:24px;padding:40px 36px;text-align:center;
@@ -171,26 +171,54 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
   font-family:'Bebas Neue';font-size:20px;color:var(--white);flex-shrink:0}
 .author-info strong{font-size:13px;font-weight:700;color:var(--white);display:block}
 .author-info span{font-size:11px;color:var(--g3)}
-
+ 
 /* ── FOOTER ── */
 .site-footer{margin-top:32px;font-size:11px;color:var(--g4);
   text-align:center;position:relative;z-index:1}
-
+ 
+/* ── TELA DE FORMULÁRIO (CAPTURA DE LEAD) ── */
+.form-field{margin-bottom:16px;text-align:left}
+.form-field label{display:block;font-size:12px;font-weight:700;color:var(--g2);
+  letter-spacing:.5px;margin-bottom:8px}
+.form-field input{width:100%;background:var(--bg3);border:2px solid rgba(255,255,255,0.08);
+  border-radius:12px;padding:16px 18px;font-family:'Figtree';font-size:15px;
+  color:var(--white);transition:border-color .2s}
+.form-field input::placeholder{color:var(--g4)}
+.form-field input:focus{outline:none;border-color:var(--r)}
+.form-field input.invalid{border-color:#EF4444}
+.form-error{font-size:12px;color:#F87171;margin-top:6px;display:none}
+.form-error.show{display:block}
+.btn-form-submit{display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;background:linear-gradient(135deg,var(--r),var(--o));
+  color:var(--white);border:none;padding:20px;border-radius:14px;
+  font-family:'Figtree';font-weight:800;font-size:15px;cursor:pointer;
+  box-shadow:0 8px 30px rgba(220,38,38,.35);transition:all .25s;margin-top:8px}
+.btn-form-submit:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(220,38,38,.5)}
+.btn-form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.form-privacy{font-size:11px;color:var(--g4);text-align:center;margin-top:14px;line-height:1.6}
+.form-spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.4);
+  border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.form-error-banner{background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.3);
+  border-radius:12px;padding:14px 16px;font-size:13px;color:#FCA5A5;
+  margin-bottom:16px;text-align:left;display:none}
+.form-error-banner.show{display:block}
+ 
 /* ── ANIMAÇÕES ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
-
+ 
 <div class="noise"></div>
-
+ 
 <!-- HEADER -->
 <header class="site-header">
   <div class="logo">FIT FREE <span>JOELHOS</span></div>
 </header>
-
+ 
 <div class="quiz-wrap">
-
+ 
   <!-- ══ CAPA ══ -->
   <div class="cover-card" id="cover">
     <div class="cover-glow"></div>
@@ -202,7 +230,7 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
       <div class="meta-item"><div class="meta-dot"></div>2 minutos</div>
       <div class="meta-item"><div class="meta-dot"></div>100% gratuito</div>
     </div>
-    <button class="btn-start" onclick="startQuiz()">
+    <button class="btn-start" onclick="showLeadForm()">
       🦵 Descobrir meu perfil
     </button>
     <div class="cover-author">
@@ -213,7 +241,40 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
       </div>
     </div>
   </div>
-
+ 
+  <!-- ══ FORMULÁRIO (CAPTURA DE LEAD) ══ -->
+  <div class="cover-card" id="leadform" style="display:none">
+    <div class="cover-glow"></div>
+    <div class="cover-tag">📋 Antes de começar</div>
+    <h1 class="cover-h1">PRA ONDE EU<br>ENVIO O SEU<br><em>RESULTADO?</em></h1>
+    <p class="cover-sub">Preencha seus dados para receber seu perfil personalizado e poder falar com o Rafael ao final.</p>
+ 
+    <div class="form-error-banner" id="form-error-banner"></div>
+ 
+    <form id="lead-form" onsubmit="submitLeadForm(event)" style="text-align:left">
+      <div class="form-field">
+        <label for="lead-nome">Nome</label>
+        <input type="text" id="lead-nome" placeholder="Seu nome" autocomplete="name">
+        <div class="form-error" id="err-nome">Digite seu nome.</div>
+      </div>
+      <div class="form-field">
+        <label for="lead-email">E-mail</label>
+        <input type="email" id="lead-email" placeholder="seu@email.com" autocomplete="email">
+        <div class="form-error" id="err-email">Digite um e-mail válido.</div>
+      </div>
+      <div class="form-field">
+        <label for="lead-whatsapp">WhatsApp</label>
+        <input type="tel" id="lead-whatsapp" placeholder="(11) 91234-5678" autocomplete="tel">
+        <div class="form-error" id="err-whatsapp">Digite um WhatsApp válido com DDD.</div>
+      </div>
+      <button type="submit" class="btn-form-submit" id="btn-form-submit">
+        🦵 Descobrir meu perfil
+      </button>
+    </form>
+ 
+    <p class="form-privacy">Seus dados são usados apenas para enviar seu resultado e contato do Rafael. Sem spam.</p>
+  </div>
+ 
   <!-- ══ QUIZ ══ -->
   <div id="quiz" style="display:none">
     <div class="progress-bar-wrap">
@@ -225,27 +286,27 @@ body{background:var(--bg);font-family:'Figtree',sans-serif;color:var(--white);
         <div class="progress-fill" id="progress-fill" style="width:20%"></div>
       </div>
     </div>
-
+ 
     <div class="question-card" id="question-card">
       <div class="q-tag" id="q-tag">Pergunta 1</div>
       <div class="q-text" id="q-text"></div>
       <div class="options" id="options"></div>
     </div>
-
+ 
     <button class="btn-next" id="btn-next" onclick="nextQuestion()">
       Próxima pergunta →
     </button>
   </div>
-
+ 
   <!-- ══ RESULTADO ══ -->
   <div class="result-card" id="result"></div>
-
+ 
 </div>
-
+ 
 <footer class="site-footer">
   Rafael Faccina · Especialista em Joelho · @personalrafaelfaccina
 </footer>
-
+ 
 <script>
 // ══════════════════════════════════════════
 // PERGUNTAS
@@ -302,7 +363,7 @@ const perguntas = [
     ]
   }
 ]
-
+ 
 // ══════════════════════════════════════════
 // RESULTADOS
 // ══════════════════════════════════════════
@@ -356,29 +417,106 @@ const resultados = {
     wpp: "Olá+Rafael!+Fiz+o+quiz+e+tenho+dor+generalizada+no+joelho.+Preciso+de+uma+avaliação+personalizada."
   }
 }
-
+ 
+// ══════════════════════════════════════════
+// CAPTURA DE LEAD (NOME, E-MAIL, WHATSAPP)
+// ══════════════════════════════════════════
+const LEAD_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzf1XykeVA0rLqGk_6bKmADb4Gmjr52W4j-TLu-vE90fg8RZIPaWaZ7pOz6bZ-8rFsc/exec"
+ 
+function showLeadForm() {
+  document.getElementById('cover').style.display = 'none'
+  document.getElementById('leadform').style.display = 'block'
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+ 
+function validateLeadForm(nome, email, whatsapp) {
+  let valid = true
+  document.getElementById('lead-nome').classList.remove('invalid')
+  document.getElementById('lead-email').classList.remove('invalid')
+  document.getElementById('lead-whatsapp').classList.remove('invalid')
+  document.getElementById('err-nome').classList.remove('show')
+  document.getElementById('err-email').classList.remove('show')
+  document.getElementById('err-whatsapp').classList.remove('show')
+ 
+  if (nome.trim().length < 2) {
+    document.getElementById('lead-nome').classList.add('invalid')
+    document.getElementById('err-nome').classList.add('show')
+    valid = false
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRegex.test(email.trim())) {
+    document.getElementById('lead-email').classList.add('invalid')
+    document.getElementById('err-email').classList.add('show')
+    valid = false
+  }
+  const digits = whatsapp.replace(/\D/g, '')
+  if (digits.length < 10 || digits.length > 11) {
+    document.getElementById('lead-whatsapp').classList.add('invalid')
+    document.getElementById('err-whatsapp').classList.add('show')
+    valid = false
+  }
+  return valid
+}
+ 
+function submitLeadForm(event) {
+  event.preventDefault()
+ 
+  const nome = document.getElementById('lead-nome').value
+  const email = document.getElementById('lead-email').value
+  const whatsapp = document.getElementById('lead-whatsapp').value
+  const errorBanner = document.getElementById('form-error-banner')
+  const btn = document.getElementById('btn-form-submit')
+ 
+  errorBanner.classList.remove('show')
+ 
+  if (!validateLeadForm(nome, email, whatsapp)) {
+    return
+  }
+ 
+  btn.disabled = true
+  btn.innerHTML = '<span class="form-spinner"></span> Enviando...'
+ 
+  fetch(LEAD_WEBAPP_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify({ nome: nome.trim(), email: email.trim(), whatsapp: whatsapp.trim() })
+  })
+    .then(() => {
+      // Guarda os dados do lead para personalizar o CTA final
+      window.leadData = { nome: nome.trim(), email: email.trim(), whatsapp: whatsapp.trim() }
+      document.getElementById('leadform').style.display = 'none'
+      startQuiz()
+    })
+    .catch(() => {
+      btn.disabled = false
+      btn.innerHTML = '🦵 Descobrir meu perfil'
+      errorBanner.textContent = 'Não foi possível enviar seus dados agora. Verifique sua internet e tente novamente.'
+      errorBanner.classList.add('show')
+    })
+}
+ 
 // ══════════════════════════════════════════
 // LÓGICA DO QUIZ
 // ══════════════════════════════════════════
 let current = 0
 let respostas = []
 let selectedIndex = -1
-
+ 
 function startQuiz() {
   document.getElementById('cover').style.display = 'none'
   document.getElementById('quiz').style.display = 'block'
   renderQuestion()
 }
-
+ 
 function renderQuestion() {
   const q = perguntas[current]
   selectedIndex = -1
-
+ 
   document.getElementById('q-tag').textContent = q.tag
   document.getElementById('q-text').innerHTML = q.texto
   document.getElementById('progress-count').textContent = `${current + 1} de ${perguntas.length}`
   document.getElementById('progress-fill').style.width = `${((current + 1) / perguntas.length) * 100}%`
-
+ 
   const optionsEl = document.getElementById('options')
   optionsEl.innerHTML = ''
   q.opcoes.forEach((op, i) => {
@@ -393,15 +531,15 @@ function renderQuestion() {
     btn.onclick = () => selectOption(i, op.valor)
     optionsEl.appendChild(btn)
   })
-
+ 
   const card = document.getElementById('question-card')
   card.style.animation = 'none'
   card.offsetHeight
   card.style.animation = 'fadeUp .4s ease both'
-
+ 
   document.getElementById('btn-next').classList.remove('show')
 }
-
+ 
 function selectOption(index, valor) {
   document.querySelectorAll('.option').forEach((el, i) => {
     el.classList.toggle('selected', i === index)
@@ -410,7 +548,7 @@ function selectOption(index, valor) {
   respostas[current] = { index, valor }
   document.getElementById('btn-next').classList.add('show')
 }
-
+ 
 function nextQuestion() {
   if (selectedIndex === -1) return
   current++
@@ -420,7 +558,7 @@ function nextQuestion() {
     showResult()
   }
 }
-
+ 
 function getResultKey() {
   const vals = respostas.map(r => r.valor)
   // Lógica de resultado baseada nas respostas
@@ -431,15 +569,15 @@ function getResultKey() {
   if (vals[3] === 'menisco') return 'lateral'
   return 'geral'
 }
-
+ 
 function showResult() {
   document.getElementById('quiz').style.display = 'none'
   const key = getResultKey()
   const r = resultados[key]
   const el = document.getElementById('result')
-
+ 
   const tituloFormatado = r.titulo.replace('\n', '<br>')
-
+ 
   el.innerHTML = `
     <div style="text-align:center;margin-bottom:24px">
       <div class="result-icon">${r.icon}</div>
@@ -468,6 +606,26 @@ function showResult() {
       </a>
       <p class="result-note">Atendimento gratuito · Sem compromisso · Resposta rápida</p>
     </div>
+    <button class="btn-restart" onclick="restartQuiz()">↩ Refazer o quiz</button>
+  `
+  el.classList.add('show')
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+ 
+function restartQuiz() {
+  current = 0
+  respostas = []
+  selectedIndex = -1
+  document.getElementById('result').classList.remove('show')
+  document.getElementById('result').innerHTML = ''
+  document.getElementById('quiz').style.display = 'block'
+  renderQuestion()
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+</script>
+</body>
+</html>
+ 
     <button class="btn-restart" onclick="restartQuiz()">↩ Refazer o quiz</button>
   `
   el.classList.add('show')
