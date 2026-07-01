@@ -163,6 +163,15 @@ body{
   background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
 }
 
+/* Vitrine / Produtos */
+.card-shop{
+  background:rgba(249,115,22,.06);
+  border:1px solid rgba(249,115,22,.22);
+}
+.card-shop:hover{background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.4)}
+.card-shop .card-ico{background:rgba(249,115,22,.14);border:1px solid rgba(249,115,22,.28)}
+.card-shop .card-label{color:var(--o)}
+
 /* Texto do card */
 .card-body{flex:1}
 .card-label{
@@ -308,12 +317,24 @@ body{
       <div class="card-arrow">→</div>
     </a>
 
+    <!-- 5. PRODUTOS / VITRINE SHOPEE -->
+    <a href="https://collshp.com/treino_em_casa_facil?view=storefront" class="link-card card-shop" target="_blank" rel="noopener">
+      <div class="card-ico">🏠</div>
+      <div class="card-body">
+        <span class="card-label">Treino em casa</span>
+        <span class="card-title">Produtos baratinhos que eu uso</span>
+        <span class="card-desc">Miniband, bola suíça, rolo e mais · Shopee</span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
   </div>
 
   <!-- ══ FOOTER ══ -->
   <div class="footer">
     <strong>Rafael Faccina</strong> · Educador Físico · Especialista em Joelho<br>
-    © 2025 Fit Free Joelhos
+    © 2025 Fit Free Joelhos<br>
+    <span style="opacity:.7">Alguns links são de afiliado Shopee</span>
   </div>
 
 </div>
