@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Black Friday Fit Free Joelhos | Pague 1 mês, treine 2</title>
+<meta name="description" content="Black Friday do Rafael Faccina: o treino para quem tem dor no joelho vem com 1 mês grátis. São 2 meses por R$ 99, até 30/11.">
+<meta name="theme-color" content="#080808">
+<link rel="canonical" href="https://www.fitfreejoelhos.com.br/blackfriday">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://www.fitfreejoelhos.com.br/blackfriday">
+<meta property="og:title" content="Black Friday Fit Free Joelhos: pague 1 mês, treine 2">
+<meta property="og:description" content="Treino para quem tem dor no joelho, com o Rafael Faccina. 2 meses por R$ 99, até 30/11.">
+<meta property="og:image" content="https://www.fitfreejoelhos.com.br/professor-rafael.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23DC2626'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='26' text-anchor='middle' fill='white'%3E1+1%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --preto:#080808;--branco:#fff;--claro:#E5E7EB;--cinza:#9CA3AF;
+  --vermelho:#DC2626;--laranja:#F97316;
+  --papel:#F4F4F2;--papel-borda:#D6D6D1;--casa:#E2E2DD;--tinta:#C0161B;
+  --display:'Bebas Neue','Arial Narrow',Impact,sans-serif;
+  --texto:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  /* largura de cada folha de calendário: acompanha a tela */
+  --f:min(38vw,19vh,220px);
+}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--preto);color:var(--branco);font-family:var(--texto);line-height:1.5;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--laranja);outline-offset:3px;border-radius:6px}
+
+.tela{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
+.brilho{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(75% 30% at 50% 47%,rgba(220,38,38,.30),transparent 70%),
+    radial-gradient(50% 25% at 100% 0%,rgba(249,115,22,.10),transparent 70%)}
+.granulado{position:absolute;inset:0;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* topo */
+.topo{position:relative;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  width:100%;max-width:1120px;margin:0 auto;padding:10px 20px}
+.marca{font-family:var(--display);font-size:22px;letter-spacing:.5px;text-decoration:none;white-space:nowrap}
+.marca span{color:var(--vermelho)}
+.selo-bf{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;white-space:nowrap;
+  background:rgba(220,38,38,.14);border:1px solid rgba(220,38,38,.45)}
+
+/* miolo */
+.miolo{position:relative;flex:1;width:100%;max-width:1120px;margin:0 auto;padding:4px 20px 8px;
+  display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,1.8vh,22px)}
+.manchete{font-family:var(--display);font-weight:400;font-size:clamp(44px,min(15vw,8.6vh),104px);line-height:.88;letter-spacing:.5px}
+.sub{margin-top:clamp(6px,1.2vh,14px);font-size:15.5px;color:var(--claro);max-width:36ch}
+
+/* calendários */
+.calendarios{display:flex;justify-content:center;align-items:flex-start;padding:calc(var(--f)*.04) 0 calc(var(--f)*.1)}
+.folha{position:relative;flex:none;width:var(--f);background:var(--papel);border-radius:calc(var(--f)*.04);padding-bottom:calc(var(--f)*.056);
+  box-shadow:0 calc(var(--f)*.008) 0 var(--papel-borda),0 calc(var(--f)*.1) calc(var(--f)*.2) rgba(0,0,0,.6)}
+.folha-1{transform:rotate(-6deg);margin-right:calc(var(--f)*-.15);margin-top:calc(var(--f)*.09);z-index:1}
+.folha-2{transform:rotate(4deg);z-index:2}
+.folha-topo{height:calc(var(--f)*.096);border-radius:calc(var(--f)*.04) calc(var(--f)*.04) 0 0;background:var(--vermelho);
+  display:flex;justify-content:space-around;align-items:center}
+.argola{width:calc(var(--f)*.04);height:calc(var(--f)*.04);border-radius:50%;background:#3b0a0a}
+.folha-mes{font-family:var(--display);color:#141414;font-size:calc(var(--f)*.17);line-height:1;
+  padding:calc(var(--f)*.048) calc(var(--f)*.052) calc(var(--f)*.024)}
+.folha-semana,.folha-dias{display:grid;grid-template-columns:repeat(7,1fr);gap:calc(var(--f)*.016);padding:0 calc(var(--f)*.052)}
+.folha-semana{margin-bottom:calc(var(--f)*.024)}
+.folha-semana b{font-size:calc(var(--f)*.04);font-weight:800;color:#8B8B86;text-align:center;line-height:1}
+.folha-dias i{display:block;height:calc(var(--f)*.1143);border-radius:calc(var(--f)*.012);background:var(--casa)}
+.folha-dias i.t{background:var(--vermelho)}
+.carimbo-pos{position:absolute;left:0;right:0;top:30%;bottom:0;display:grid;place-items:center;pointer-events:none}
+.carimbo{font-family:var(--display);font-size:calc(var(--f)*.2);line-height:1;letter-spacing:calc(var(--f)*.008);color:var(--tinta);
+  padding:calc(var(--f)*.028) calc(var(--f)*.048) calc(var(--f)*.012);border:calc(var(--f)*.012) solid currentColor;
+  border-radius:calc(var(--f)*.028);background:rgba(244,244,242,.86);
+  box-shadow:0 0 0 calc(var(--f)*.012) rgba(244,244,242,.86),0 0 0 calc(var(--f)*.02) currentColor;
+  transform:rotate(-15deg);filter:url(#tinta)}
+@media(prefers-reduced-motion:no-preference){
+  .carimbo{animation:carimbar .45s cubic-bezier(.2,.9,.3,1.15) .7s both}
+  .folha-2{animation:impacto .4s ease-out 1s both}
+}
+@keyframes carimbar{
+  0%{opacity:0;transform:rotate(-24deg) scale(2.3)}
+  70%{opacity:1;transform:rotate(-14deg) scale(.94)}
+  100%{opacity:1;transform:rotate(-15deg) scale(1)}
+}
+@keyframes impacto{0%{translate:0 0}30%{translate:0 5px}100%{translate:0 0}}
+
+/* oferta */
+.preco{display:flex;align-items:flex-end;gap:12px}
+.preco-valor{font-family:var(--display);font-size:clamp(54px,min(18vw,9.5vh),112px);line-height:.78;letter-spacing:1px;white-space:nowrap}
+.moeda{font-size:.42em;vertical-align:.95em;margin-right:3px}
+.preco-legenda{font-size:18px;font-weight:700;line-height:1.2;padding-bottom:1px}
+.preco-legenda small{display:block;margin-top:2px;font-size:13.5px;font-weight:500;color:var(--cinza)}
+.inclui{margin-top:clamp(6px,1.2vh,12px);font-size:13.5px;color:var(--cinza);max-width:44ch}
+.botao{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;margin-top:clamp(10px,2vh,20px);
+  padding:14px 26px;border-radius:999px;background:linear-gradient(135deg,var(--vermelho),var(--laranja));color:#fff;
+  font-weight:800;font-size:17px;line-height:1.2;text-decoration:none;text-align:center;
+  box-shadow:0 10px 36px rgba(220,38,38,.38);transition:transform .2s,box-shadow .2s}
+.botao:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(220,38,38,.52)}
+.botao:active{transform:none}
+.botao svg{width:21px;height:21px;flex:none}
+.micro{margin-top:8px;font-size:12.5px;color:var(--cinza)}
+.contagem{margin-top:6px;font-size:13px;color:var(--cinza)}
+.contagem b{font-family:var(--display);font-weight:400;font-size:22px;color:#fff;letter-spacing:.5px}
+
+.rodape{position:relative;width:100%;max-width:1120px;margin:0 auto;padding:6px 20px calc(12px + env(safe-area-inset-bottom));
+  font-size:11px;line-height:1.45;color:#8B929C}
+
+/* telas largas: duas colunas, ainda em uma tela */
+@media(min-width:900px) and (min-height:560px){
+  :root{--f:min(22vw,33vh,300px)}
+  .topo{padding:20px 48px}
+  .marca{font-size:26px}
+  .selo-bf{font-size:13.5px;padding:6px 13px}
+  .miolo{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+    grid-template-areas:"texto calendarios" "oferta calendarios";column-gap:56px;row-gap:clamp(22px,4vh,40px);
+    align-content:center;padding:0 48px}
+  .texto{grid-area:texto;align-self:end}
+  .calendarios{grid-area:calendarios;align-self:center}
+  .oferta{grid-area:oferta;align-self:start}
+  .manchete{font-size:clamp(60px,11.5vh,128px)}
+  .sub{font-size:18px}
+  .botao{width:auto;display:inline-flex}
+  .rodape{padding:10px 48px 18px;font-size:12px}
+  .brilho{background:
+    radial-gradient(40% 55% at 76% 50%,rgba(220,38,38,.30),transparent 70%),
+    radial-gradient(40% 40% at 0% 0%,rgba(249,115,22,.08),transparent 70%)}
+}
+@media(max-width:349px){.selo-data{display:none}}
+/* celulares baixos: aperta um pouco para caber em uma tela */
+@media(max-width:899px) and (max-height:700px){
+  :root{--f:min(36vw,17.5vh,210px)}
+  .miolo{gap:clamp(6px,1.3vh,16px)}
+  .manchete{font-size:clamp(40px,min(15vw,8.2vh),104px)}
+  .sub{font-size:14.5px}
+  .preco-valor{font-size:clamp(50px,min(17vw,8.6vh),112px)}
+  .botao{min-height:52px;margin-top:10px}
+  .rodape{font-size:10.5px}
+}
+
+.encerrada [data-so-na-oferta]{display:none!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="tinta" x="-15%" y="-15%" width="130%" height="130%">
+    <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="7" result="ruido"/>
+    <feColorMatrix in="ruido" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -8 5.9" result="falhas"/>
+    <feComposite in="SourceGraphic" in2="falhas" operator="in" result="manchado"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="3" result="onda"/>
+    <feDisplacementMap in="manchado" in2="onda" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="tela">
+  <div class="brilho" aria-hidden="true"></div>
+  <div class="granulado" aria-hidden="true"></div>
+
+  <header class="topo">
+    <a href="/" class="marca" aria-label="Fit Free Joelhos, página inicial">FIT FREE <span>JOELHOS</span></a>
+    <span class="selo-bf" data-encerrada="Black Friday encerrada">Black Friday<span class="selo-data"> até <span class="js-dia">30/11</span></span></span>
+  </header>
+
+  <main class="miolo">
+    <div class="texto">
+      <h1 class="manchete" data-encerrada="A Black Friday acabou.">Pague 1 mês.<br>Treine 2.</h1>
+      <p class="sub" data-encerrada="Mas o treino continua. Chame o Rafael no WhatsApp para conhecer os planos de agora.">Treino para dor no joelho com o Rafael Faccina, em casa ou na academia.</p>
+    </div>
+
+    <div class="calendarios" role="img" aria-label="Dois meses de treino: o mês 1 você paga e o mês 2 sai grátis">
+      <div class="folha folha-1" aria-hidden="true">
+        <div class="folha-topo"><span class="argola"></span><span class="argola"></span></div>
+        <div class="folha-mes">Mês 1</div>
+        <div class="folha-semana"><b>D</b><b>S</b><b>T</b><b>Q</b><b>Q</b><b>S</b><b>S</b></div>
+        <div class="folha-dias">
+          <i></i><i class="t"></i><i></i><i class="t"></i><i></i><i class="t"></i><i></i>
+          <i></i><i class="t"></i><i></i><i class="t"></i><i></i><i class="t"></i><i></i>
+          <i></i><i class="t"></i><i></i><i class="t"></i><i></i><i class="t"></i><i></i>
+          <i></i><i class="t"></i><i></i><i class="t"></i><i></i><i class="t"></i><i></i>
+          <i></i><i class="t"></i>
+        </div>
+      </div>
+      <div class="folha folha-2" aria-hidden="true">
+        <div class="folha-topo"><span class="argola"></span><span class="argola"></span></div>
+        <div class="folha-mes">Mês 2</div>
+        <div class="folha-semana"><b>D</b><b>S</b><b>T</b><b>Q</b><b>Q</b><b>S</b><b>S</b></div>
+        <div class="folha-dias">
+          <i></i><i class="t"></i><i></i><i class="t"></i><i></i><i class="t"></i><i></i>
+          <i></i><i class="t"></i><i></i><i class="t"></i><i></i><i class="t"></i><i></i>
+          <i></i><i class="t"></i><i></i><i class="t"></i><i></i><i class="t"></i><i></i>
+          <i></i><i class="t"></i><i></i><i class="t"></i><i></i><i class="t"></i><i></i>
+          <i></i><i class="t"></i>
+        </div>
+        <div class="carimbo-pos" data-so-na-oferta><span class="carimbo">Grátis</span></div>
+      </div>
+    </div>
+
+    <div class="oferta">
+      <div class="preco" data-so-na-oferta>
+        <span class="preco-valor"><span class="moeda">R$</span>99</span>
+        <span class="preco-legenda">pelos 2 meses<small>Dá R$ 49,50 por mês</small></span>
+      </div>
+      <p class="inclui">Com avaliação, treino personalizado e suporte.</p>
+      <a class="botao js-whats" href="https://wa.me/5511947882500?text=Ol%C3%A1%2C%20Rafael%21%20Vim%20pela%20p%C3%A1gina%20da%20Black%20Friday%20e%20quero%20garantir%20o%20plano%20de%201%20m%C3%AAs%20%2B%201%20m%C3%AAs%20gr%C3%A1tis%20por%20R%24%2099." target="_blank" rel="noopener">
+        <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        <span data-encerrada="Falar com o Rafael no WhatsApp">Quero meus 2 meses</span>
+      </a>
+      <p class="micro">Abre o WhatsApp do Rafael com a mensagem pronta.</p>
+      <p class="contagem" data-so-na-oferta>A oferta termina em <span class="js-tempo"><span class="js-dia">30/11</span>, às <span class="js-hora">23h59</span></span></p>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <span data-so-na-oferta>Oferta válida até <span class="js-data">30/11/2026</span>, às <span class="js-hora">23h59</span>. </span>WhatsApp (11) 94788-2500. O treino não substitui avaliação médica.
+  </footer>
+</div>
+
+<script>
+(function () {
+  /* =====================================================
+     AJUSTE AQUI
+     FIM_DA_OFERTA: data e hora em que a oferta acaba
+     (o "-03:00" no final é o horário de Brasília).
+     Depois desse horário a página troca sozinha para
+     "A Black Friday acabou" e some com preço e contagem.
+     ===================================================== */
+  var FIM_DA_OFERTA = '2026-11-30T23:59:59-03:00';
+  var WHATSAPP = '5511947882500';
+  var MENSAGEM = 'Olá, Rafael! Vim pela página da Black Friday e quero garantir o plano de 1 mês + 1 mês grátis por R$ 99.';
+  var MENSAGEM_DEPOIS = 'Olá, Rafael! Vim pela página da Black Friday e quero saber dos planos.';
+  /* ===================================================== */
+
+  var fim = new Date(FIM_DA_OFERTA).getTime();
+  var encerrada = false;
+
+  function porTodos(seletor, fn) {
+    var lista = document.querySelectorAll(seletor);
+    for (var i = 0; i < lista.length; i++) fn(lista[i]);
+  }
+  function dois(n) { return (n < 10 ? '0' : '') + n; }
+  function linkWhats() {
+    return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(encerrada ? MENSAGEM_DEPOIS : MENSAGEM);
+  }
+
+  // Escreve a data do fim da oferta nos textos da página
+  try {
+    var partes = {};
+    new Intl.DateTimeFormat('pt-BR', {
+      timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit', year: 'numeric',
+      hour: '2-digit', minute: '2-digit', hour12: false
+    }).formatToParts(new Date(fim)).forEach(function (p) { partes[p.type] = p.value; });
+    var dia = partes.day + '/' + partes.month;
+    porTodos('.js-dia', function (el) { el.textContent = dia; });
+    porTodos('.js-data', function (el) { el.textContent = dia + '/' + partes.year; });
+    porTodos('.js-hora', function (el) { el.textContent = partes.hour + 'h' + partes.minute; });
+  } catch (e) {}
+
+  function encerrar() {
+    encerrada = true;
+    document.body.classList.add('encerrada');
+    porTodos('[data-encerrada]', function (el) { el.textContent = el.getAttribute('data-encerrada'); });
+    porTodos('.js-whats', function (a) { a.href = linkWhats(); });
+  }
+
+  // Contagem regressiva
+  function atualizar() {
+    var resta = fim - Date.now();
+    if (isNaN(resta)) return false;
+    if (resta <= 0) { encerrar(); return false; }
+    var s = Math.floor(resta / 1000);
+    var d = Math.floor(s / 86400); s %= 86400;
+    var h = Math.floor(s / 3600); s %= 3600;
+    var m = Math.floor(s / 60); s %= 60;
+    var texto = (d > 0 ? '<b>' + d + '</b>d ' : '') + '<b>' + dois(h) + '</b>h <b>' + dois(m) + '</b>m <b>' + dois(s) + '</b>s';
+    porTodos('.js-tempo', function (el) { el.innerHTML = texto; });
+    return true;
+  }
+  porTodos('.js-whats', function (a) { a.href = linkWhats(); });
+  if (atualizar()) {
+    var relogio = setInterval(function () { if (!atualizar()) clearInterval(relogio); }, 1000);
+  }
+
+  // Registra o clique (só funciona se o Google Analytics ou o Pixel da Meta estiverem instalados)
+  porTodos('.js-whats', function (a) {
+    a.addEventListener('click', function () {
+      try { if (typeof window.gtag === 'function') window.gtag('event', 'clique_whatsapp', { pagina: 'blackfriday' }); } catch (e) {}
+      try { if (typeof window.fbq === 'function') window.fbq('track', 'Contact'); } catch (e) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>
