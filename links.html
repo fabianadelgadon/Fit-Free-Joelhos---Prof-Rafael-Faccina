@@ -223,6 +223,39 @@ body{
 }
 .footer strong{color:var(--g3);font-weight:600}
 
+/* ── BLACK FRIDAY (temporário) ── */
+.card-bf{
+  padding:34px 20px 22px;
+  border:2px solid transparent;
+  background-image:linear-gradient(#0b0b0b,#0b0b0b),linear-gradient(90deg,var(--r),var(--o),var(--r),var(--o));
+  background-origin:border-box;
+  background-clip:padding-box,border-box;
+  background-size:100% 100%,300% 100%;
+  box-shadow:0 10px 40px rgba(220,38,38,.35),0 0 0 1px rgba(249,115,22,.15);
+}
+.card-bf:hover{box-shadow:0 16px 52px rgba(220,38,38,.55),0 0 0 1px rgba(249,115,22,.3)}
+.card-bf .card-ico{
+  width:50px;height:50px;background:#F4F4F2;overflow:hidden;
+  flex-direction:column;justify-content:flex-start;
+}
+.bf-ico-topo{display:block;width:100%;height:12px;background:var(--r);flex-shrink:0}
+.bf-ico-num{font-family:'Bebas Neue';font-size:27px;line-height:1;color:#141414;margin-top:5px}
+.card-bf .card-body{padding-right:8px}
+.card-bf .card-label{color:var(--o);opacity:1}
+.card-bf .card-title{font-family:'Bebas Neue';font-size:28px;font-weight:400;letter-spacing:.5px;line-height:.95;margin:4px 0 6px}
+.card-bf .card-desc{color:rgba(255,255,255,.75);font-size:13px}
+.card-bf .card-arrow{color:var(--o)}
+.badge-bf{
+  position:absolute;top:10px;right:14px;
+  background:#fff;color:var(--r);
+  padding:3px 9px;border-radius:100px;
+  font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+}
+@media(prefers-reduced-motion:no-preference){
+  .links .link-card.card-bf{animation:fadeUp .5s ease .1s both,bfBorda 4s linear infinite}
+}
+@keyframes bfBorda{from{background-position:0 0,0% 0}to{background-position:0 0,100% 0}}
+
 /* ── ANIMAÇÕES ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .profile{animation:fadeUp .5s ease both}
@@ -230,6 +263,7 @@ body{
 .link-card:nth-child(2){animation:fadeUp .5s ease .2s both}
 .link-card:nth-child(3){animation:fadeUp .5s ease .25s both}
 .link-card:nth-child(4){animation:fadeUp .5s ease .3s both}
+.link-card:nth-child(5){animation:fadeUp .5s ease .35s both}
 </style>
 </head>
 <body>
@@ -261,6 +295,18 @@ body{
 
   <!-- ══ LINKS ══ -->
   <div class="links">
+
+    <!-- 0. BLACK FRIDAY (temporário: some sozinho quando a oferta acaba) -->
+    <a href="https://fitfreejoelhos.com.br/blackfriday" class="link-card card-bf" id="card-bf" target="_blank" rel="noopener">
+      <div class="card-ico" aria-hidden="true"><span class="bf-ico-topo"></span><span class="bf-ico-num">+1</span></div>
+      <div class="card-body">
+        <span class="card-label">Black Friday</span>
+        <span class="card-title">Pague 1 mês.<br>Treine 2.</span>
+        <span class="card-desc">2 meses de treino por R$ 99, só até 30/11</span>
+      </div>
+      <div class="card-arrow">→</div>
+      <div class="badge-bf">+1 mês grátis</div>
+    </a>
 
     <!-- 1. QUIZ -->
     <a href="https://fitfreejoelhos.com.br/quiz" class="link-card card-quiz" target="_blank">
@@ -338,5 +384,16 @@ body{
   </div>
 
 </div>
+
+<script>
+  /* Black Friday: depois desta data o link some da página sozinho */
+  (function () {
+    var FIM_DA_OFERTA = '2026-11-30T23:59:59-03:00';
+    if (Date.now() > new Date(FIM_DA_OFERTA).getTime()) {
+      var card = document.getElementById('card-bf');
+      if (card) card.parentNode.removeChild(card);
+    }
+  })();
+</script>
 </body>
 </html>
