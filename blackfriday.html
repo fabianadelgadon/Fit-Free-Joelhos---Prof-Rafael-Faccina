@@ -102,7 +102,12 @@ a{color:inherit}
 .botao:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(220,38,38,.52)}
 .botao:active{transform:none}
 .botao svg{width:21px;height:21px;flex:none}
-.micro{margin-top:8px;font-size:12.5px;color:var(--cinza)}
+.botao .icone-whats{display:none}
+.encerrada .botao .icone-whats{display:block}
+.encerrada .botao .icone-cadeado{display:none}
+.link-whats{display:inline-flex;align-items:center;gap:7px;padding:9px 0 3px;font-size:13.5px;font-weight:700;color:#fff;
+  text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:3px}
+.link-whats svg{width:16px;height:16px;flex:none;color:#25D366}
 .contagem{margin-top:6px;font-size:13px;color:var(--cinza)}
 .contagem b{font-family:var(--display);font-weight:400;font-size:22px;color:#fff;letter-spacing:.5px}
 
@@ -206,11 +211,15 @@ a{color:inherit}
         <span class="preco-legenda">pelos 2 meses<small>Dá R$ 49,50 por mês</small></span>
       </div>
       <p class="inclui">Com avaliação, treino personalizado e suporte.</p>
-      <a class="botao js-whats" href="https://wa.me/5511947882500?text=Ol%C3%A1%2C%20Rafael%21%20Vim%20pela%20p%C3%A1gina%20da%20Black%20Friday%20e%20quero%20garantir%20o%20plano%20de%201%20m%C3%AAs%20%2B%201%20m%C3%AAs%20gr%C3%A1tis%20por%20R%24%2099." target="_blank" rel="noopener">
-        <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+      <a class="botao js-pagar" href="https://chk.eduzz.com/D0R8G7DJ9Y?cupom=50FREEBLACKFRIDAY" target="_blank" rel="noopener">
+        <svg class="icone-cadeado" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+        <svg class="icone-whats" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
         <span data-encerrada="Falar com o Rafael no WhatsApp">Quero meus 2 meses</span>
       </a>
-      <p class="micro">Abre o WhatsApp do Rafael com a mensagem pronta.</p>
+      <a class="link-whats js-whats" data-so-na-oferta href="https://wa.me/5511947882500?text=Ol%C3%A1%2C%20Rafael%21%20Vi%20a%20oferta%20da%20Black%20Friday%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20garantir%20meus%202%20meses." target="_blank" rel="noopener">
+        <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        Tem dúvida? Fale com o Rafael no WhatsApp
+      </a>
       <p class="contagem" data-so-na-oferta>A oferta termina em <span class="js-tempo"><span class="js-dia">30/11</span>, às <span class="js-hora">23h59</span></span></p>
     </div>
   </main>
@@ -227,11 +236,14 @@ a{color:inherit}
      FIM_DA_OFERTA: data e hora em que a oferta acaba
      (o "-03:00" no final é o horário de Brasília).
      Depois desse horário a página troca sozinha para
-     "A Black Friday acabou" e some com preço e contagem.
+     "A Black Friday acabou", some com preço e contagem
+     e o botão passa a abrir o WhatsApp.
+     CHECKOUT: link de pagamento da Eduzz (com o cupom).
      ===================================================== */
   var FIM_DA_OFERTA = '2026-11-30T23:59:59-03:00';
+  var CHECKOUT = 'https://chk.eduzz.com/D0R8G7DJ9Y?cupom=50FREEBLACKFRIDAY';
   var WHATSAPP = '5511947882500';
-  var MENSAGEM = 'Olá, Rafael! Vim pela página da Black Friday e quero garantir o plano de 1 mês + 1 mês grátis por R$ 99.';
+  var MENSAGEM_DUVIDA = 'Olá, Rafael! Vi a oferta da Black Friday e tenho uma dúvida antes de garantir meus 2 meses.';
   var MENSAGEM_DEPOIS = 'Olá, Rafael! Vim pela página da Black Friday e quero saber dos planos.';
   /* ===================================================== */
 
@@ -243,8 +255,8 @@ a{color:inherit}
     for (var i = 0; i < lista.length; i++) fn(lista[i]);
   }
   function dois(n) { return (n < 10 ? '0' : '') + n; }
-  function linkWhats() {
-    return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(encerrada ? MENSAGEM_DEPOIS : MENSAGEM);
+  function linkWhats(mensagem) {
+    return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(mensagem);
   }
 
   // Escreve a data do fim da oferta nos textos da página
@@ -264,7 +276,7 @@ a{color:inherit}
     encerrada = true;
     document.body.classList.add('encerrada');
     porTodos('[data-encerrada]', function (el) { el.textContent = el.getAttribute('data-encerrada'); });
-    porTodos('.js-whats', function (a) { a.href = linkWhats(); });
+    porTodos('.js-pagar', function (a) { a.href = linkWhats(MENSAGEM_DEPOIS); });
   }
 
   // Contagem regressiva
@@ -280,17 +292,25 @@ a{color:inherit}
     porTodos('.js-tempo', function (el) { el.innerHTML = texto; });
     return true;
   }
-  porTodos('.js-whats', function (a) { a.href = linkWhats(); });
+  porTodos('.js-pagar', function (a) { a.href = CHECKOUT; });
+  porTodos('.js-whats', function (a) { a.href = linkWhats(MENSAGEM_DUVIDA); });
   if (atualizar()) {
     var relogio = setInterval(function () { if (!atualizar()) clearInterval(relogio); }, 1000);
   }
 
-  // Registra o clique (só funciona se o Google Analytics ou o Pixel da Meta estiverem instalados)
-  porTodos('.js-whats', function (a) {
+  // Registra os cliques (só funciona se o Google Analytics ou o Pixel da Meta estiverem instalados)
+  function registrar(evento, padraoMeta) {
+    try { if (typeof window.gtag === 'function') window.gtag('event', evento, { pagina: 'blackfriday' }); } catch (e) {}
+    try { if (typeof window.fbq === 'function') window.fbq('track', padraoMeta); } catch (e) {}
+  }
+  porTodos('.js-pagar', function (a) {
     a.addEventListener('click', function () {
-      try { if (typeof window.gtag === 'function') window.gtag('event', 'clique_whatsapp', { pagina: 'blackfriday' }); } catch (e) {}
-      try { if (typeof window.fbq === 'function') window.fbq('track', 'Contact'); } catch (e) {}
+      if (encerrada) registrar('clique_whatsapp', 'Contact');
+      else registrar('clique_pagamento', 'InitiateCheckout');
     });
+  });
+  porTodos('.js-whats', function (a) {
+    a.addEventListener('click', function () { registrar('clique_whatsapp', 'Contact'); });
   });
 })();
 </script>
